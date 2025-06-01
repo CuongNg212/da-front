@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+    <title>Ananas - Shoes Store</title>
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <!--=== All Plugins CSS ===-->
+    <link href="assets/css/plugins.css" rel="stylesheet">
+    <!--=== All Vendor CSS ===-->
+    <link href="assets/css/vendor.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Modernizer JS -->
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Start Header Area -->
+    <header class="header-area">
+        <!-- main header start -->
+        <div class="main-header d-none d-lg-block">
+            <!-- header middle area start -->
+            <div class="header-main-area sticky">
+                <div class="container">
+                    <div class="row align-items-center position-relative">
+                        <!-- start logo area -->
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="index-2.html">
+                                    <img src="assets/img/logo/logo.png" alt>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- start logo area -->
+
+                        <!-- main menu area start -->
+                        <div class="col-lg-8 position-static">
+                            <div class="main-menu-area">
+                                <div class="main-menu">
+                                    <!-- main menu navbar start -->
+                                    <nav class="desktop-menu">
+                                        <ul>
+                                            <li><a href="index-2.html">Trang
+                                                    chủ</a></li>
+                                            <li class="active"><a href="shop.html">Cửa
+                                                    hàng</a></li>
+                                            <li><a href="contact-us.html">Liên
+                                                    hệ</a></li>
+                                        </ul>
+                                        <ul class="mt-1 mb-5">
+                                            <li>
+                                                <input type="text" id="searchInput" style="width: 500px;" placeholder="Nhập sản phẩm cần tìm kiếm...">
+                                                <button id="searchBtn"><i class="ion-ios-search-strong"></i> Tìm kiếm</button>
+                                            </li>
+                                        </ul>
+                                        
+                                        <div id="searchResults" class="search-results" style="display: none; width: 500px; border: 1px solid #ccc; padding: 10px; max-height: 300px; overflow-y: auto; margin-top: 10px;"></div>                                        
+                                    
+                                    </nav>
+                                    <!-- main menu navbar end -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- main menu area end -->
+
+                        <!-- mini cart area start -->
+                        <div class="col-lg-2">
+                            <div class="header-configure-wrapper">
+                                <div class="header-configure-area">
+                                    <ul class="nav justify-content-end">
+                                       
+                                        <li class="user-hover">
+                                            <a href="#">
+                                                <i class="ion-ios-gear-outline"></i>
+                                            </a>
+                                            <ul class="dropdown-list">
+                                                <li><a href="login.html">Đăng
+                                                        nhập</a></li>
+                                                <li><a href="register.html">Đăng
+                                                        ký</a></li>
+                                                <li><a href="my-account.html">Tài
+                                                        khoản</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="minicart-btn">
+                                                <i class="ion-bag"></i>
+                                                <div class="notification" id="cart-quantity">0</div>
+                                            </a>
+                                        </li>
+                                        <!-- Thêm ảnh user -->
+                                        <li class="user-thumbnail">
+                                            <a href="my-account.html">
+                                                <img src="assets/img/about/avatar.jpg" alt="User" class="user-image">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- mini cart area end -->
+                    </div>
+                </div>
+            </div>
+            <!-- header middle area end -->
+        </div>
+        <!-- main header start -->
+    </header>
+    <!-- end Header Area -->
+
+    <!-- main wrapper start -->
+    <main>
+        <!-- page main wrapper start -->
+        <div class="shop-main-wrapper mt-5 mb-5">
+            <div class="container">
+                <div class="row">
+                    <!-- sidebar area start -->
+                    <div class="col-lg-3 order-2 order-lg-1">
+                        <div class="sidebar-wrapper">
+                            <!-- single sidebar start -->
+                            <div class="sidebar-single">
+                                <div class="sidebar-title">
+                                    <h3>Danh mục</h3>
+                                </div>
+                                <div class="sidebar-body">
+                                    <ul class="color-list">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- single sidebar end -->
+
+                            <!-- single sidebar start -->
+                            <div class="sidebar-single" id="filter-price">
+                                <div class="sidebar-title">
+                                    <h3>Lọc theo giá</h3>
+                                </div>
+                                <div class="sidebar-body">
+                                    <div class="price-range-wrap">
+                                        <!-- Giá trị min và max sẽ được cập nhật từ API -->
+                                        <div class="price-range" data-min="20" data-max="100"></div>
+                                        <div class="range-slider">
+                                            <form action="#">
+                                                <div class="price-input">
+                                                    <label for="amount">Giá:
+                                                    </label>
+                                                    <input type="text" id="amount">
+                                                </div>
+                                                <button class="filter-btn">Lọc</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single sidebar end -->
+
+                            <!-- single sidebar end -->
+
+                            <!-- single sidebar start -->
+                            <div class="sidebar-single">
+                                <div class="sidebar-banner">
+                                    <a href="#">
+                                        <img src="assets/img/banner/banner_left.jpg" alt>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- single sidebar end -->
+                        </div>
+                    </div>
+                    <!-- sidebar area end -->
+
+                    <!-- shop main wrapper start -->
+                    <div class="col-lg-9 order-1 order-lg-2">
+                        <div class="shop-product-wrapper">
+                            <!-- shop product top wrap start -->
+                            <div class="shop-top-bar">
+                                <div class="row">
+                                    <div class="col-xl-5 col-lg-4 col-md-3 order-2 order-md-1">
+                                        <div class="top-bar-left">
+                                            <div class="product-view-mode">
+                                                <a class="active" href="#" data-target="grid-view"><i
+                                                        class="fa fa-th"></i></a>
+                                                <a href="#" data-target="list-view"><i class="fa fa-list"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7 col-lg-8 col-md-9 order-1 order-md-2">
+                                        <div class="top-bar-right">
+                                            <div class="product-short">
+                                                <p>Sort By : </p>
+                                                <select class="nice-select" name="sortby">
+                                                    <option value>Liên
+                                                        quan</option>
+                                                    <option value="productName">Tên
+                                                        (A - Z)</option>
+                                                    <option value="price,asc">Giá
+                                                        từ thấp đến
+                                                        cao</option>
+                                                    <option value="price,desc">Giá
+                                                        từ cao đến
+                                                        thấp</option>
+                                                    <option value="soldQuantity,desc">Lượt mua nhiều
+                                                        nhất</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- shop product top wrap start -->
+
+                            <!-- product item list start -->
+                            <div class="shop-product-wrap grid-view row mbn-50">
+
+                                <!--sản phẩm được thêm động tại đây-->
+
+                            </div>
+                            <!-- product item list end -->
+
+                            <!-- start pagination area -->
+                            <div class="paginatoin-area text-center mt-45">
+                                <ul class="pagination-box">
+                                    <li><a class="Previous" href="#"><i class="ion-ios-arrow-left"></i></a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a class="Next" href="#"><i class="ion-ios-arrow-right"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- end pagination area -->
+                        </div>
+                    </div>
+                    <!-- shop main wrapper end -->
+                </div>
+            </div>
+        </div>
+        <!-- page main wrapper end -->
+    </main>
+    <!-- main wrapper end -->
+
+    <!-- Quick view modal start -->
+    <div class="modal fade" id="quick_view" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        style="margin-top: 5px;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Image Section -->
+                        <div class="col-md-6">
+                            <div class="product-large-slider" style="position: relative; overflow: hidden;">
+                                <img id="mainImage" src alt="Product Image" class="img-fluid zoomable">
+                            </div>
+                            <div class="product-thumbnails mt-3 d-flex">
+                                <!-- Thumbnail Images -->
+                                <img style="width: 90px; height: 80px;" id="thumb1" src alt="Thumbnail 1"
+                                    class="img-thumbnail me-2 thumbnail" style="cursor: pointer;">
+                                <img style="width: 90px; height: 80px;" id="thumb2" src alt="Thumbnail 2"
+                                    class="img-thumbnail me-2 thumbnail" style="cursor: pointer;">
+                                <img style="width: 90px; height: 80px;" id="thumb3" src alt="Thumbnail 3"
+                                    class="img-thumbnail me-2 thumbnail" style="cursor: pointer;">
+                                <img style="width: 90px; height: 80px;" id="thumb4" src alt="Thumbnail 4"
+                                    class="img-thumbnail me-2 thumbnail" style="cursor: pointer;">
+                            </div>
+                        </div>
+                        <!-- Details Section -->
+                        <div class="col-md-6">
+                            <div class="product-details">
+                                <!-- Tên sản phẩm -->
+                                <h5 style="margin-bottom: 10px;" class="modal-title" id="productName"></h5>
+                                <div style="margin-bottom: 10px;" class="pro-review">
+                                    <p>Số lượt đánh giá: <span style="margin-bottom: 10px" id="reviews"></span></p>
+                                </div>
+                                <!-- Giá sản phẩm -->
+                                <div style="margin-bottom: 10px;" class="price-box">
+                                    <span id="currentPrice" class="price-regular"></span>
+                                    <span id="oldPrice" class="price-old text-muted"><del></del></span>
+                                </div>
+                                <!-- Mô tả -->
+                                <p style="margin-bottom: 10px;" id="description">L</p>
+                                <!-- Tình trạng -->
+                                <div class="availability">
+                                    <strong>Tồn kho:</strong> <span id="availability" class="text-success"></span>
+                                </div>
+                                <div id="qvId" style="display: none;"></div>
+
+                                <!-- Chọn màu -->
+                                <div class="color-selection mt-3">
+                                    <label><strong>Màu sắc:</strong></label>
+                                    <div class="d-flex mt-2">
+                                        <div class="color-box me-2" style="background-color: white;" data-color="White">
+                                        </div>
+                                        <div class="color-box me-2" style="background-color: black;" data-color="Black">
+                                        </div>
+                                        <div class="color-box me-2" style="background-color: blue;" data-color="Blue">
+                                        </div>
+                                        <div class="color-box me-2" style="background-color: red;" data-color="Red">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Chọn size -->
+                                <div class="size-selection mt-3">
+                                    <label><strong>Kích cỡ:</strong></label>
+                                    <div class="d-flex mt-2">
+                                        <div class="size-box me-2" data-size="37">37</div>
+                                        <div class="size-box me-2" data-size="38">38</div>
+                                        <div class="size-box me-2" data-size="39">39</div>
+                                        <div class="size-box me-2" data-size="40">40</div>
+                                        <div class="size-box me-2" data-size="41">41</div>
+                                        <div class="size-box me-2" data-size="42">42</div>
+                                        <div class="size-box me-2" data-size="43">43</div>
+                                        <div class="size-box me-2" data-size="44">44</div>
+                                    </div>
+                                </div>
+
+                                <!-- Số lượng và nút thêm giỏ hàng -->
+                                <div style="margin-bottom: 10px;" class="quantity mt-3">
+                                    <label for="quantityInput">Số lượng:</label>
+                                    <input class="quantityInput" id="quantityInput" type="number" value="0" min="0"
+                                        max="0" class="form-control w-25 d-inline">
+                                    <button id="addToCart" class="btn btn-dark ms-2">Thêm giỏ hàng</button>
+                                </div>
+                                <div style="margin-bottom: 10px;" class="social-share mt-3">
+                                    <strong>Chia sẻ:</strong>
+                                    <a href="#" class="ms-2"><i class="ion-social-facebook"></i></a>
+                                    <a href="#" class="ms-2"><i class="ion-social-twitter"></i></a>
+                                    <a href="#" class="ms-2"><i class="ion-social-pinterest"></i></a>
+                                    <a href="#" class="ms-2"><i class="ion-social-googleplus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick view modal end -->
+
+    <!-- Start Footer Area Wrapper -->
+    <footer class="footer-wrapper">
+        <!-- footer main area start -->
+        <div class="footer-widget-area mt-5">
+            <div class="container">
+                <div class="row mtn-4">
+                    <!-- footer widget item start -->
+                    <div class="col-xl-5 col-lg-3 col-md-6">
+                        <div class="widget-item mt-4">
+                            <h5 class="widget-title">Thông tin liên hệ</h5>
+                            <div class="widget-body">
+                                <ul class="location-wrap">
+                                    <li><i class="ion-ios-location-outline"></i>Minh
+                                        Khai Ward, Bac Tu Liem District,
+                                        Hanoi City.</li>
+                                    <li><i class="ion-ios-email-outline"></i>Mail:
+                                        <a href="mailto:yourmail@gmail.com">ananas@gmail.com</a>
+                                    </li>
+                                    <li><i class="ion-ios-telephone-outline"></i>Phone:
+                                        <a href="%2b0025425456554.html">+0123456789</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-3 col-md-6"></div>
+                    <!-- footer widget item end -->
+                    <div class="col-xl-3 col-lg-3 col-md-6">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.4737884515107!2d105.73253187608918!3d21.053730980601838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345457e292d5bf%3A0x20ac91c94d74439a!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1733187950170!5m2!1svi!2s"
+                            width="400" height="200" style="border:0;" allowfullscreen loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer main area end -->
+    </footer>
+    <!-- End Footer Area Wrapper -->
+
+    <!-- offcanvas mini cart start -->
+    <div class="offcanvas-minicart-wrapper">
+        <div class="minicart-inner">
+            <div class="offcanvas-overlay"></div>
+            <div class="minicart-inner-content">
+                <div class="minicart-close">
+                    <i class="ion-android-close"></i>
+                </div>
+                <h3 style="text-align: center; margin-bottom: 30px;">Giỏ
+                    hàng của bạn</h3>
+                <div class="minicart-content-box">
+                    <div class="minicart-item-wrapper">
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <div class="minicart-pricing-box">
+                        <ul id="cart_summary">
+
+                        </ul>
+                    </div>
+
+                    <div class="minicart-button">
+                        <a href="cart.html"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- offcanvas mini cart end -->
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        const token = localStorage.getItem('token');
+        const id = localStorage.getItem('userId');
+
+        const formatCurrency = (number) => {
+            return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        };
+        
+        document.addEventListener("DOMContentLoaded", async () => {
+            const apiEndpoint = "http://localhost:8888/api/shop/product";
+            const categoryApi = "http://localhost:8888/api/shop/category";
+            const productCountApi = "http://localhost:8888/api/shop/product/category/";
+            const cartQuantityApi = "http://localhost:8888/api/shop/cart/quantity";
+            const token = localStorage.getItem('token');
+            const id = localStorage.getItem('userId');
+
+            let currentPage = 0; // Trang hiện tại
+            let condition = "";
+
+            var filter = "";
+
+            // Gọi API để lấy khoảng giá
+            $.ajax({
+                url: 'http://localhost:8888/api/shop/product/price-range', // Đường dẫn đến API
+                method: 'GET',
+                success: function (response) {
+                    // Cập nhật giá trị min và max từ API
+                    const minPrice = response.result.minPrice;
+                    const maxPrice = response.result.maxPrice;
+
+                    console.log("Min Price:", minPrice, "Max Price:", maxPrice);
+                    console.log(response);
+
+                    $('#filter-price').empty();
+                    const filterPrice = `
+                    <div class="sidebar-title">
+                        <h3>Lọc theo giá</h3>
+                    </div>
+                    <div class="sidebar-body">
+                        <div class="price-range-wrap">
+                            <div class="price-range" data-min="${minPrice}" data-max="${maxPrice}"></div>
+                            <div class="range-slider">
+                                <form action="#">
+                                    <div class="price-input">
+                                        <label for="amount">Giá: </label>
+                                        <input type="text" id="amount" >
+                                    </div>
+                                    <button class="filter-btn">Lọc</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>`;
+
+                    $('#filter-price').append(filterPrice);
+
+                    // Khởi tạo slider
+                    $('.price-range').slider({
+                        range: true,
+                        min: minPrice,
+                        max: maxPrice,
+                        values: [minPrice, maxPrice],
+                        slide: function (event, ui) {
+                            $('#amount').val(ui.values[0] + " - " + ui.values[1]);
+                        }
+                    });
+
+                    $('#amount').val(minPrice + " - " + maxPrice);
+
+                },
+                error: function () {
+                    console.error("Không thể lấy dữ liệu từ API.");
+                }
+            });
+
+            $(document).on('click', '.filter-btn', function (e) {
+                e.preventDefault();
+                const minPrice = $('.price-range').slider('values', 0);
+                const maxPrice = $('.price-range').slider('values', 1);
+                const filter = `price>:${minPrice} and price<:${maxPrice}`;
+                loadProducts(0, "", filter);
+            });
+
+
+            // Lấy danh sách category
+            fetch(categoryApi)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        const categories = data.result;
+                        const categoryList = document.querySelector(".color-list");
+                        categoryList.innerHTML = ""; // Xóa danh sách hiện tại
+
+                        categories.forEach(category => {
+                            fetch(productCountApi + category.categoryId)
+                                .then(response => response.json())
+                                .then(countData => {
+                                    if (countData.code === 200) {
+                                        const productCount = countData.result;
+
+                                        // Tạo item trong danh sách
+                                        const categoryItem = document.createElement("li");
+                                        categoryItem.innerHTML = `
+                                            <a href="#" data-category="${category.categoryName}">${category.categoryName} <span>(${productCount})</span></a>
+                                        `;
+                                        categoryList.appendChild(categoryItem);
+                                    }
+                                });
+                        });
+                    }
+                });
+
+            $(document).on("click", ".color-list a", function (e) {
+                e.preventDefault(); // Ngăn hành động mặc định
+                const categoryName = $(this).data("category"); // Lấy tên danh mục
+                console.log(categoryName);
+                filter = "category.categoryName~'" + categoryName + "'";
+                loadProducts(0, "", filter); // Gọi hàm loadProducts với filter
+            });
+
+            // Nếu có token, gọi API lấy số lượng sản phẩm trong giỏ hàng
+            if (token) {
+                try {
+                    const quantityResponse = await fetch(`http://localhost:8888/api/shop/cart/quantity?userId=${id}`, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        },
+                    });
+
+                    if (!quantityResponse.ok) {
+                        throw new Error(`Error fetching cart quantity: ${quantityResponse.statusText}`);
+                    }
+
+                    const quantityData = await quantityResponse.json();
+                    const numberOfProduct = quantityData.result;
+
+                    console.log("Cart Quantity:", numberOfProduct);
+                    document.getElementById('cart-quantity').innerText = numberOfProduct;
+                } catch (error) {
+                    console.error('Error fetching cart quantity:', error);
+                }
+            }
+
+            // Hàm gọi API và render dữ liệu
+            async function loadProducts(page, condition = "", filter = "") {
+                try {
+                    // Gọi API
+                    const response = await fetch(`${apiEndpoint}?page=${page}&size=6&sort=${condition}&filter=${filter}`);
+                    const data = await response.json();
+
+                    // Kiểm tra phản hồi từ API
+                    if (data.code === 200) {
+                        const products = data.result.result;
+                        const meta = data.result.meta;
+
+                        // Xóa sản phẩm cũ
+                        $(".shop-product-wrap").empty();
+
+                        // Render sản phẩm mới
+                        for (const product of products) {
+                            let rating = 0;
+
+                            try {
+                                // Gọi API để lấy rating
+                                const responseRate = await fetch(`http://localhost:8888/api/shop/review/average?productId=${product.productId}`);
+                                const dataRate = await responseRate.json();
+                                if (dataRate.code === 200) {
+                                    rating = Math.round(dataRate.result.result); // Làm tròn số sao
+                                }
+                            } catch (error) {
+                                console.error(`Error fetching rating for product ${product.productId}:`, error);
+                            }
+
+                            const productHTML = `
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="product-item mb-53">
+                                        <div class="product-thumb">
+                                            <a href="product-details.html?id=${product.productId}">
+                                                <img src="http://localhost:8888/images/product/${product.images[0]}" alt="${product.productName}">
+                                            </a>
+                                        </div>
+                                        <div class="product-content">
+                                            <h5 class="product-name">
+                                                <a href="product-details.html?id=${product.productId}">${product.productName}</a>
+                                            </h5>
+                                            <div class="ratings mb-2">
+                                                ${'<span><i class="ion-android-star"></i></span>'.repeat(rating)}
+                                                ${'<span><i class="ion-android-star-outline"></i></span>'.repeat(5 - rating)}
+                                            </div>
+                                            <div class="price-box">
+                                                <span class="price-regular">${formatCurrency(product.price * (100 - product.discount) / 100)}</span>
+                                                <span class="price-old"><del>${formatCurrency(product.price)}</del></span>
+                                            </div>
+                                            <div class="product-action-link">
+                                                <a href="#" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                                                <a href="product-details.html?id=${product.productId}" title="Add To Cart"><i class="ion-bag"></i></a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view" data-product-id="${product.productId}">
+                                                    <i class="ion-ios-eye-outline"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product-list-item mb-30">
+                                    <div class="product-thumb">
+                                        <a href="product-details.html?id=${product.productId}">
+                                            <img src="http://localhost:8888/images/product/${product.images[0]}" alt="product thumb">
+                                        </a>
+                                    </div>
+                                    <div class="product-content-list">
+                                        <h5 class="product-name">
+                                            <a href="product-details.html?id=${product.productId}">${product.productName}</a>
+                                        </h5>
+                                        <div class="ratings mb-2">
+                                                ${'<span><i class="ion-android-star"></i></span>'.repeat(rating)}
+                                                ${'<span><i class="ion-android-star-outline"></i></span>'.repeat(5 - rating)}
+                                        </div>
+                                        <div class="price-box">
+                                            <span class="price-regular">${formatCurrency(product.price * (100 - product.discount) / 100)}</span>
+                                            <span class="price-old"><del>${formatCurrency(product.price)}</del></span>
+                                        </div>
+                                        <p>${product.description}</p>
+                                        <div class="product-link-2 position-static">
+                                            <a href="#" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                                            <a href="product-details.html?id=${product.productId}" title="Add To Cart"><i class="ion-bag"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view" data-product-id="${product.productId}">
+                                               <i class="ion-ios-eye-outline"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            `;
+                            $(".shop-product-wrap").append(productHTML);
+                        }
+
+                        // Gắn sự kiện "Quick View" sau khi render
+                        addQuickViewEventListeners();
+
+                        // Render phân trang
+                        const paginationBox = document.querySelector(".pagination-box");
+                        paginationBox.innerHTML = "";
+
+                        if (meta.pages > 1) {
+                            paginationBox.innerHTML += `<li><a class="Previous" href="#"><i class="ion-ios-arrow-left"></i></a></li>`;
+                            for (let i = 0; i < meta.pages; i++) {
+                                paginationBox.innerHTML += `
+                                    <li class="${i === page ? 'active' : ''}">
+                                        <a href="#">${i + 1}</a>
+                                    </li>
+                                `;
+                            }
+                            paginationBox.innerHTML += `<li><a class="Next" href="#"><i class="ion-ios-arrow-right"></i></a></li>`;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error loading products:', error);
+                }
+            }
+
+            // Sự kiện phân trang
+            document.addEventListener("click", event => {
+                if (event.target.closest(".pagination-box a")) {
+                    event.preventDefault();
+                    const text = event.target.textContent;
+
+                    if (text === "Previous" && currentPage > 0) {
+                        currentPage--;
+                    } else if (text === "Next") {
+                        currentPage++;
+                    } else {
+                        currentPage = parseInt(text) - 1;
+                    }
+                    loadProducts(currentPage, condition, filter);
+                }
+            });
+
+            // Sự kiện chọn điều kiện sắp xếp
+            document.querySelector(".nice-select ul").addEventListener("click", event => {
+                if (event.target.tagName === "LI") {
+                    condition = event.target.getAttribute("data-value");
+                    loadProducts(currentPage, condition, filter);
+                }
+            });
+
+            // Lấy chi tiết sản phẩm từ API và hiển thị trong modal
+            async function fetchQuickViewProduct(productId) {
+                try {
+                    let rvs = "No reviews available"; // Giá trị mặc định
+                    try {
+                        const rv = await fetch(`http://localhost:8888/api/shop/review/count?productId=${productId}`);
+                        const datarv = await rv.json();
+                        rvs = datarv.result.result; // Nếu fetch và json thành công
+                    } catch (error) {
+                        console.error("Error fetching review count:", error); // Ghi log lỗi
+                    }
+
+                    const response = await fetch(`${apiEndpoint}/${productId}`, {
+                        method: "GET",
+                        headers: {
+                            // 'Authorization': `Bearer ${token}`
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    const data = await response.json();
+                    const product = data.result;
+
+                    document.getElementById("productName").textContent = product.productName;
+                    document.getElementById("currentPrice").textContent = formatCurrency(product.price * (100 - product.discount) / 100);
+                    document.getElementById("oldPrice").textContent = product.discount ? formatCurrency(product.price) : "";
+                    document.getElementById("description").textContent = product.description;
+                    document.getElementById("qvId").textContent = product.productId;
+                    document.getElementById("reviews").textContent = rvs;
+                    // document.getElementById("availability").textContent = product.soldQuantity > 0 ? "In Stock" : "Out of Stock";
+
+                    const mainImage = `http://localhost:8888/images/product/${product.images[0]}`;
+                    document.getElementById('mainImage').src = mainImage;
+
+
+                    const thumbnails = product.images || [];
+                    document.getElementById('thumb1').src = thumbnails[0] ? `http://localhost:8888/images/product/${thumbnails[0]}` : 'http://localhost:8888/images/product/default-image.jpg';
+                    document.getElementById('thumb2').src = thumbnails[1] ? `http://localhost:8888/images/product/${thumbnails[1]}` : 'http://localhost:8888/images/product/default-image.jpg';
+                    document.getElementById('thumb3').src = thumbnails[2] ? `http://localhost:8888/images/product/${thumbnails[2]}` : 'http://localhost:8888/images/product/default-image.jpg';
+                    document.getElementById('thumb4').src = thumbnails[3] ? `http://localhost:8888/images/product/${thumbnails[3]}` : 'http://localhost:8888/images/product/default-image.jpg';
+                    document.getElementById('thumb5').src = thumbnails[4] ? `http://localhost:8888/images/product/${thumbnails[4]}` : 'http://localhost:8888/images/product/default-image.jpg';
+
+                    const quickViewModal = new bootstrap.Modal(document.getElementById('quick_view'));
+                    quickViewModal.show();
+
+
+                } catch (error) {
+                    console.error("Error fetching product details:", error);
+                }
+            }
+
+            // Thêm sự kiện cho nút Quick View
+            function addQuickViewEventListeners() {
+                document.querySelectorAll('[data-bs-target="#quick_view"]').forEach(button => {
+                    button.addEventListener('click', async (event) => {
+                        const productId = event.currentTarget.getAttribute('data-product-id');
+                        await fetchQuickViewProduct(productId);
+                    });
+                });
+            }
+            // Phóng to ảnh chính khi di chuột
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            // Thay đổi ảnh chính khi bấm vào thumbnail
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', (event) => {
+                    const newImageSrc = event.target.src;
+                    mainImage.src = newImageSrc;
+                });
+            });
+
+            // Di chuột để phóng to vùng ảnh
+            mainImage.addEventListener('mousemove', (event) => {
+                const bounds = mainImage.getBoundingClientRect();
+                const xPercent = ((event.clientX - bounds.left) / bounds.width) * 100;
+                const yPercent = ((event.clientY - bounds.top) / bounds.height) * 100;
+                mainImage.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            });
+
+            mainImage.addEventListener('mouseleave', () => {
+                mainImage.style.transformOrigin = 'center center';
+            });
+
+            // Gọi lần đầu để tải sản phẩm
+            loadProducts(currentPage, condition, filter);
+
+            // logic thêm giỏ hàng
+            document.querySelectorAll('.color-box').forEach((box) => {
+                box.addEventListener('click', function () {
+                    document.querySelectorAll('.color-box').forEach((b) => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    console.log("Selected Color:", this.getAttribute('data-color'));
+                });
+            });
+
+            document.querySelectorAll('.size-box').forEach((box) => {
+                box.addEventListener('click', function () {
+                    document.querySelectorAll('.size-box').forEach((b) => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    console.log("Selected Size:", this.getAttribute('data-size'));
+                });
+            });
+
+            async function addToCart(userId, productId, quantity, size, color) {
+                const apiUrl = `http://localhost:8888/api/shop/cart?userId=${userId}&productId=${productId}&quantity=${quantity}&size=${size}&color=${color}`;
+
+                if (!userId) {
+                    alert("Bạn phải đăng nhập trước khi thêm sản phẩm vào giỏ hàng!");
+                }
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            // 'Authorization': `Bearer ${token}`, // Thêm nếu cần xác thực
+                        },
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Failed to add to cart: ${response.status}`);
+                    }
+
+                    // Kiểm tra Content-Type để xử lý phản hồi phù hợp
+                    const contentType = response.headers.get("Content-Type");
+                    let data;
+
+                    if (contentType && contentType.includes("application/json")) {
+                        data = await response.json(); // Xử lý nếu là JSON
+                    } else {
+                        data = await response.text(); // Xử lý nếu là text
+                    }
+
+                    // Kiểm tra nội dung phản hồi
+                    if (typeof data === "string") {
+                        console.log("Response message:", data);
+                        alert(data); // Hiển thị thông báo cho người dùng
+                        location.reload();
+                    } else if (data.code === 200) {
+                        console.log("Product added to cart successfully:", data.message);
+                        alert(data.message || "Product added successfully!");
+                    } else {
+                        console.error("Error adding to cart:", data.message);
+                        alert("Failed to add product to cart!");
+                    }
+                } catch (error) {
+                    console.error("Error during add-to-cart operation:", error);
+                }
+            }
+
+
+
+            document.getElementById("addToCart").addEventListener("click", function () {
+                const selectedColor = document.querySelector('.color-box.selected')?.getAttribute('data-color');
+                const selectedSize = document.querySelector('.size-box.selected')?.getAttribute('data-size');
+                const quantity = parseInt(document.getElementById("quantityInput").value);
+                const qvId = document.getElementById("qvId").textContent.trim();
+                console.log("abc" + qvId);
+
+                const min = parseInt(document.getElementById("quantityInput").min);
+                const max = parseInt(document.getElementById("quantityInput").max);
+
+                if (!selectedColor || !selectedSize) {
+                    alert("Chọn cả màu sắc và kích cỡ.");
+                    return;
+                }
+
+
+                console.log("Add to Cart:", { color: selectedColor, size: selectedSize, quantity });
+
+                // Logic thêm sản phẩm vào giỏ hàng
+                if (isNaN(quantity) || quantity <= min || quantity > max) {
+                    alert("Số lượng không hợp lệ");
+                    return;
+                }
+                    addToCart(id, qvId, quantity, selectedSize, selectedColor);
+               
+            });
+        });
+        // Bắt đầu xử lý mini card
+        function renderMiniCart(cartItems, summary) {
+            const cartWrapper = document.querySelector(".minicart-item-wrapper ul");
+            const pricingBox = document.querySelector("#cart_summary");
+            // Làm rỗng nội dung cũ
+            pricingBox.innerHTML = "";
+            cartWrapper.innerHTML = "";
+            // Render từng sản phẩm
+            cartItems.forEach(item => {
+                const product = item.product;
+                const quantity = item.quantity;
+                const cartItemHTML = `
+            <li class="minicart-item">
+                <div class="minicart-thumb">
+                    <a href="product-details.html?id=${product.productId}">
+                        <img src="http://localhost:8888/images/product/${product.images[0]}" alt="${product.productName}">
+                    </a>
+                </div>
+                <div class="minicart-content">
+                    <h3 class="product-name" style="padding: 0px;">
+                        <a href="product-details.html?id=${product.productId}">${product.productName}</a>
+                    </h3>
+                    <p>
+                        <span class="cart-quantity">${quantity} <strong>&times;</strong></span>
+                        <span class="cart-price">${(product.price).toLocaleString()} VNĐ</span>
+                    </p>
+                    <p>
+                        <span class="product-name">Màu sắc: ${product.color}</span><br>
+                        <span class="product-name">Kích thước: ${product.size}</span>
+                    </p>
+                </div>
+                <button class="minicart-remove" data-variant-id="${product.variantId}">
+                    <i class="ion-android-close"></i>
+                </button>
+            </li>
+        `;
+                cartWrapper.innerHTML += cartItemHTML;
+
+            });
+            document.getElementById('cart-quantity').innerText = summary.totalQuantity;
+            // Render tổng giá trị
+            pricingBox.innerHTML = ""; // Làm rỗng container trước
+            pricingBox.innerHTML += `
+        <li><span>Tổng giá trước thuế</span><span><strong>${summary.totalPrice.toLocaleString()} VNĐ</strong></span></li>
+        <li><span>VAT (10%)</span><span><strong>${(summary.totalPrice * 0.1).toLocaleString()} VNĐ</strong></span></li>
+        <li class="total"><span>Tổng giá sau thuế</span><span><strong>${(summary.totalPrice * 1.1).toLocaleString()} VNĐ</strong></span></li>
+    `;
+        }
+
+        // Hàm lấy dữ liệu sản phẩm trong giỏ hàng
+        async function fetchCartItems(userId) {
+            try {
+                const response = await fetch(`http://localhost:8888/api/shop/cart?userId=${userId}`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": token,
+                        "Content-Type": "application/json"
+                    }
+                });
+                const data = await response.json();
+                if (data.code === 200) {
+                    return data.result;
+                } else {
+                    throw new Error(data.message || "Failed to fetch cart items.");
+                }
+            } catch (error) {
+                console.error("Error fetching cart items:", error);
+                return [];
+            }
+        }
+
+        // Hàm lấy dữ liệu tổng hợp giỏ hàng (số lượng và giá trị)
+        async function fetchCartSummary(userId) {
+            try {
+                const [quantityRes, priceRes] = await Promise.all([
+                    fetch(`http://localhost:8888/api/shop/cart/quantity?userId=${userId}`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": token,
+                            "Content-Type": "application/json"
+                        }
+                    }).then(res => res.json()),
+                    fetch(`http://localhost:8888/api/shop/cart/sumprice?userId=${userId}`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": token,
+                            "Content-Type": "application/json"
+                        }
+                    }).then(res => res.json())
+                ]);
+                return {
+                    totalQuantity: quantityRes.result,
+                    totalPrice: priceRes.result
+                };
+            } catch (error) {
+                console.error("Error fetching cart summary:", error);
+                return { totalQuantity: 0, totalPrice: 0 };
+            }
+        }
+
+        // Khi nhấn vào nút giỏ hàng, gọi API và hiển thị giỏ hàng mini (nếu chưa gọi trước đó)
+        document.querySelector(".minicart-btn").addEventListener("click", async (event) => {
+            event.preventDefault();  // Ngừng hành động mặc định của liên kết
+            const minicartWrapper = document.querySelector(".offcanvas-minicart-wrapper");  // Giỏ hàng mini
+            const cartItems = await fetchCartItems(id);
+            if (cartItems.length === 0) {
+                const pricingBox = document.querySelector(".minicart-pricing-box ul");
+                pricingBox.innerHTML = '<div style="text-align: center; margin: 20px 0;"> <i class="ion-bag" style="font-size: 50px; color: #ccc;"></i> <p style="font-size: 16px; color: #666; margin-top: 10px;"> Giỏ hàng của bạn đang trống </p> </div>';
+
+            } else {
+                const cartSummary = await fetchCartSummary(id);
+                renderMiniCart(cartItems, cartSummary);
+            }
+        });
+
+        // Xử lý khi nhấn nút xóa sản phẩm khỏi giỏ hàng
+        document.addEventListener("click", async (event) => {
+            if (event.target.classList.contains("minicart-remove")) {
+                const productElement = event.target.closest(".minicart-item");
+                const variantId = event.target.getAttribute("data-variant-id");
+
+                // Hiển thị hộp thoại xác nhận trước khi xóa
+                const isConfirmed = confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?");
+                if (isConfirmed) {
+                    try {
+                        // Gửi yêu cầu xóa sản phẩm
+                        const response = await fetch(`http://localhost:8888/api/shop/cart/variant/${variantId}?userId=${id}`, {
+                            method: "DELETE",
+                            headers: {
+                                "Authorization": token,
+                                "Content-Type": "application/json"
+                            }
+                        });
+
+                        if (response.ok) {
+                            // Xóa sản phẩm khỏi giao diện
+                            productElement.remove();
+                            reloadMiniCart(id);
+                        } else {
+                            throw new Error("Failed to remove item");
+                        }
+                    } catch (error) {
+                        console.error("Error removing cart item:", error);
+                    }
+                }
+            }
+        });
+
+        // Hàm reload lại giỏ hàng mini sau khi xóa sản phẩm
+        async function reloadMiniCart(userId) {
+            try {
+                const cartItems = await fetchCartItems(userId);
+                if (cartItems.length === 0) {
+                    const pricingBox = document.querySelector(".minicart-pricing-box ul");
+                    pricingBox.innerHTML = '<div style="text-align: center; margin: 20px 0;"> <i class="ion-bag" style="font-size: 50px; color: #ccc;"></i> <p style="font-size: 16px; color: #666; margin-top: 10px;"> Giỏ hàng của bạn đang trống </p> </div>';
+
+                } else {
+                    const cartSummary = await fetchCartSummary(userId);
+                    renderMiniCart(cartItems, cartSummary);
+                }
+            } catch (error) {
+                console.error("Error reloading mini cart:", error);
+            }
+        }
+        // Kết thúc xử lý mini card
+
+        // Lấy chi tiết sản phẩm từ API khi thay đổi màu sắc hoặc kích thước
+        async function updateAvailability(productId, selectedColor, selectedSize) {
+            try {
+                const response = await fetch(`http://localhost:8888/api/shop/product/sum?productId=${productId}&color=${selectedColor}&size=${selectedSize}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch product availability: ${response.statusText}`);
+                }
+                const rs = await response.json();
+                const data = rs.result;
+                document.getElementById("availability").textContent = data; // Cập nhật availability
+                document.getElementById("quantityInput").max = data;
+                document.getElementById("quantityInput").max = data;
+            } catch (error) {
+                console.error("Error fetching availability:", error);
+                document.getElementById("availability").textContent = "0";
+            }
+        }
+
+        // Xử lý sự kiện khi chọn màu sắc
+        document.querySelectorAll('.color-box').forEach(colorBox => {
+            colorBox.addEventListener('click', () => {
+                const selectedColor = colorBox.getAttribute('data-color');
+                const selectedSize = document.querySelector('.size-box.selected')?.getAttribute('data-size') || '';
+                const productId = document.getElementById("qvId").textContent; // Lấy productId từ modal
+                updateAvailability(productId, selectedColor, selectedSize);
+
+                // Thay đổi trạng thái lựa chọn
+                document.querySelectorAll('.color-box').forEach(box => box.classList.remove('selected'));
+                colorBox.classList.add('selected');
+            });
+        });
+
+        // Xử lý sự kiện khi chọn kích thước
+        document.querySelectorAll('.size-box').forEach(sizeBox => {
+            sizeBox.addEventListener('click', () => {
+                const selectedSize = sizeBox.getAttribute('data-size');
+                const selectedColor = document.querySelector('.color-box.selected')?.getAttribute('data-color') || '';
+                const productId = document.getElementById("qvId").textContent; // Lấy productId từ modal
+                updateAvailability(productId, selectedColor, selectedSize);
+
+                // Thay đổi trạng thái lựa chọn
+                document.querySelectorAll('.size-box').forEach(box => box.classList.remove('selected'));
+                sizeBox.classList.add('selected');
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", async function () {
+            const userId = localStorage.getItem("userId"); // Lấy ID từ localStorage
+            const token = localStorage.getItem("token"); // Lấy token từ localStorage
+            // Kiểm tra nếu không có ID hoặc token
+            
+
+            // API URLs
+            const UserUrl = `http://localhost:8888/api/authentication/user/${userId}`;
+            // Fetch user data
+            try {
+                const response = await fetch(UserUrl, {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                });
+                const data = await response.json();
+                const user = data.result.result;
+
+                const avatarSmall = user.avatar
+                    ? `http://localhost:8888/images/avatar/${user.avatar}`
+                    : "assets/img/about/avatar.jpg";
+
+                // Gán URL của avatar vào thẻ <img> trong .user-thumbnail
+                const userImage = document.querySelector(".user-thumbnail .user-image");
+                if (userImage) {
+                    userImage.src = avatarSmall;
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            };
+        });
+
+        document.getElementById("searchBtn").addEventListener("click", async function (e) {
+            e.preventDefault(); 
+        
+            const query = document.getElementById("searchInput").value.trim();
+            if (!query) {
+                const resultsContainer = document.getElementById("searchResults");
+                resultsContainer.innerHTML = "<p>Nhập thông tin cần tìm kiếm.</p>";
+                resultsContainer.style.display = "block"; 
+                return;
+            }
+        
+            console.log("Search query:", query); 
+        
+            try {
+                // Gửi yêu cầu đến API backend
+                const response = await fetch(`http://localhost:8888/api/shop/product/name?search=productName:like:${encodeURIComponent(query)}&page=0&size=10`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+        
+                console.log("Response status:", response.status); 
+        
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch data from API: ${response.status}`);
+                }
+        
+                const data = await response.json();
+                console.log("Response data:", data); 
+        
+                const resultsContainer = document.getElementById("searchResults");
+                resultsContainer.innerHTML = ""; 
+        
+                if (data.result.result && data.result.result.length > 0) {
+                    data.result.result.forEach(item => {
+                        const resultItem = document.createElement("div");
+                        resultItem.classList.add("result-item");
+                
+                        const link = document.createElement("a");
+                        link.href = `product-details.html?id=${item.productId}`;
+                        link.classList.add("result-link");
+                
+                        link.innerHTML = `
+                            <div class="result-thumbnail">
+                                <img src="http://localhost:8888/images/product/${item.images?.[0] || 'default-image.jpg'}" alt="${item.productName}">
+                            </div>
+                            <div class="result-details">
+                                <span class="product-name">${item.productName}</span>
+                                <span class="product-price">Giá: ${(item.price * (100 - item.discount) / 100).toLocaleString()} VND</span>
+                            </div>
+                        `;
+                
+                        resultItem.appendChild(link); 
+                        resultsContainer.appendChild(resultItem);  
+                    });
+                    resultsContainer.style.display = "block";
+                } else {
+                    resultsContainer.innerHTML = "<p>Không có sản phẩm nào được tìm thấy.</p>";
+                    resultsContainer.style.display = "block";
+                }
+                    
+            } catch (error) {
+                console.error("Error:", error.message); 
+                const resultsContainer = document.getElementById("searchResults");
+                resultsContainer.innerHTML = "<p>Lỗi tìm kiếm.</p>";
+                resultsContainer.style.display = "block"; 
+            }
+        });
+
+        document.addEventListener("click", function (event) {
+            const resultsContainer = document.getElementById("searchResults");
+            const searchInput = document.getElementById("searchInput");
+            const searchBtn = document.getElementById("searchBtn");
+
+            if (!resultsContainer.contains(event.target) && event.target !== searchInput && event.target !== searchBtn) {
+                resultsContainer.style.display = "none"; 
+            }
+        });
+    </script>
+    <!--=======================Javascript============================-->
+    <!--=== All Vendor Js ===-->
+    <script src="assets/js/vendor.js"></script>
+    <!--=== All Plugins Js ===-->
+    <script src="assets/js/plugins.js"></script>
+    <!--=== Active Js ===-->
+    <script src="assets/js/active.js"></script>
+</body>
+
+</html>
+<style>
+    /* modal */
+    .img-thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+
+    .price-box .price-regular {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+    }
+
+    .price-box .price-old {
+        font-size: 16px;
+        text-decoration: line-through;
+    }
+
+    .availability span {
+        font-weight: bold;
+    }
+
+    .product-item {
+        margin: 0 10px;
+        text-align: center;
+    }
+
+    .product-thumb img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .zoomable {
+        transition: transform 0.2s ease-in-out;
+        cursor: zoom-in;
+    }
+
+    .product-large-slider:hover .zoomable {
+        transform: scale(2);
+        /* Phóng to khi hover */
+        cursor: zoom-out;
+    }
+
+    .thumbnail {
+        cursor: pointer;
+    }
+
+    .product-large-slider {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* avt */
+    .user-thumbnail .user-image {
+        width: 30px;
+        height: 30px;
+        border-radius: 30%;
+        object-fit: cover;
+        border: 1px solid #ddd;
+    }
+
+    .user-thumbnail a {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .color-box {
+        width: 30px;
+        height: 30px;
+        border: 2px solid black;
+        cursor: pointer;
+        border-radius: 50%;
+        /* Làm ô màu thành hình tròn */
+    }
+
+    .color-box.selected {
+        border: 2px solid #3cfd6c;
+        /* Viền để phân biệt ô được chọn */
+    }
+
+    .size-box {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 2px solid #ddd;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .size-box.selected {
+        border: 2px solid #000;
+        background-color: #f0f0f0;
+    }
+
+     /* cart */
+     .minicart-inner-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Chiều cao toàn phần của nội dung */
+    }
+    
+    .minicart-item-wrapper {
+        flex-grow: 1; /* Phần danh sách sản phẩm mở rộng để chiếm không gian còn lại */
+        overflow-y: auto; /* Kích hoạt cuộn dọc */
+    }
+
+    /* footer */
+    /* Thiết lập mặc định cho footer */
+.footer-wrapper {
+    padding: 20px 0;
+}
+
+.footer-widget-area {
+    background-color: #f9f9f9;
+}
+
+.widget-item {
+    margin-bottom: 20px;
+}
+
+.location-wrap li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Thay đổi bố cục và kích thước cho màn hình nhỏ hơn */
+@media (max-width: 992px) {
+    .col-xl-5, .col-lg-3, .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-xl-3, .col-lg-3, .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center; /* Căn giữa nội dung */
+    }
+
+    iframe {
+        width: 100%;
+        height: 150px; /* Điều chỉnh chiều cao iframe */
+    }
+}
+
+@media (max-width: 576px) {
+    .location-wrap li {
+        font-size: 14px; /* Thu nhỏ font chữ */
+    }
+
+    .col-xl-5, .col-lg-3, .col-md-6,
+    .col-xl-3, .col-lg-3, .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    iframe {
+        height: 120px; /* Điều chỉnh thêm cho màn hình nhỏ */
+    }
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    top: 73%;
+    left: 28%;
+    width: 500px;
+    border: 1px solid #ccc;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: white;
+    z-index: 9999;
+}
+
+.result-item {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.result-link {
+    display: flex;
+    width: 100%;
+    text-decoration: none;  
+    color: #000;
+}
+
+.result-thumbnail {
+    margin-right: 10px;
+}
+
+.result-thumbnail img {
+    width: 50px;
+    height: 50px;
+}
+
+.result-details {
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;  
+}
+
+.result-item + .result-item {
+    border-top: 1px solid #ccc;
+}
+
+.result-item::after {
+    content: "";
+}
+</style>

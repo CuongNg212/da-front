@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content name="description">
+  <meta content name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo-haui-size.png" rel="icon">
+  <link href="assets/img/logo-haui-size.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/styleAdmin.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Thay đổi tên cửa hàng -->
+      <!-- <a href="index.html" class="logo d-flex align-items-center"> -->
+      <img src="Screenshot 2024-10-17 142441.png" alt="Logo cửa hàng">
+      <!-- <span class="d-none d-lg-block">Ananas</span> -->
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Tìm kiếm sản phẩm, đơn hàng..." title="Nhập từ khóa tìm kiếm">
+        <button type="submit" title="Tìm kiếm"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <!-- Thông báo Đơn hàng -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">5</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              Bạn có 5 thông báo mới
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-cart text-info"></i>
+              <div>
+                <h4>Đơn hàng mới</h4>
+                <p>Đơn hàng #12345 vừa được đặt</p>
+                <p>30 phút trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-truck text-warning"></i>
+              <div>
+                <h4>Đơn hàng đang giao</h4>
+                <p>Đơn hàng #54321 đang trên đường giao</p>
+                <p>1 giờ trước</p>
+              </div>
+            </li>
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <!-- Tin nhắn Khách hàng -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number" id="messageCount-2"></span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages" id="messageList">
+            <li class="dropdown-header">
+              Bạn có <span id="messageCount">0</span> tin nhắn mới
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <!-- Tin nhắn sẽ được load vào đây bằng JavaScript -->
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+          </ul>
+
+          <!-- Modal hiển thị chi tiết tin nhắn -->
+          <div id="messageModal" class="message-modal">
+            <div class="message-modal-content">
+              <span class="close-btn">&times;</span>
+              <img id="avatarMes" style="width: 25px;" src="assets/img/apple-touch-icon.png" alt=""><span
+                id="usernameMess"> User</span>
+              <ul id="messageDetails"></ul>
+              <!-- Ô nhập tin nhắn và nút gửi -->
+              <div class="send-message-container">
+                <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." />
+                <button id="sendMessageBtn">Gửi</button>
+              </div>
+            </div>
+          </div>
+
+        </li><!-- End Messages Nav -->
+
+        <!-- Thông tin Tài khoản -->
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img id="avtView" src="" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Quản lý</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Quản lý Cửa hàng</h6>
+              <span>Quản lý hệ thống</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>Thông tin cá nhân</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="login.html">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span>
+              </a>
+            </li>
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="index(2).html">
+          <i class="bi bi-grid"></i>
+          <span>Trang chủ</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <!-- Quản lý Sản phẩm -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#products-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-box-seam"></i><span>Quản Lý Sản Phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="products-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-shoe.html"><i class="bi bi-plus-circle"></i><span>Sản Phẩm</span></a></li>
+          <li><a href="list-shoes.html"><i class="bi bi-list-ul"></i><span>Danh Mục Sản Phẩm</span></a></li>
+          <li><a href="inventory-report.html"><i class="bi bi-box"></i><span>Báo cáo Tồn kho</span></a></li>
+          <!-- <li><a href="edit-shoe.html"><i class="bi bi-pencil-square"></i><span>Cập nhật Giày</span></a></li> -->
+          <!-- <li><a href="shoe-inventory.html"><i class="bi bi-box"></i><span>Quản lý Tồn kho</span></a></li> -->
+        </ul>
+      </li><!-- End Products Nav -->
+
+      <!-- Quản lý Đơn hàng -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cart"></i><span>Quản lý Đơn hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="orders-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="new-order.html"><i class="bi bi-plus-square"></i><span>Theo dõi đơn hàng</span></a></li>
+
+        </ul>
+      </li><!-- End Orders Nav -->
+
+      <!-- Quản lý Khách hàng -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#customers-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Quản lý Khách hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="customers-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-customer.html"><i class="bi bi-person-plus"></i><span>Quản lý khách hàng</span></a></li>
+        </ul>
+      </li><!-- End Customers Nav -->
+
+      <!-- Quản lý Báo cáo -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#sales-report-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Báo cáo Doanh thu</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="sales-report-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="daily-sales.html"><i class="bi bi-calendar-event"></i><span>Doanh thu</span></a></li>
+          <li><a href="customer-history.html"><i class="bi bi-card-list"></i><span>Lịch sử giao dịch</span></a></li>
+        </ul>
+      </li><!-- End Sales Report Nav -->
+
+      <!-- Quản lý Khuyến mãi -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#voucher-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gift"></i><span>Quản lý khuyến mãi</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="voucher-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-promo.html"><i class="bi bi-gift"></i><span>Quản lý Khuyến mãi</span></a></li>
+        </ul>
+      </li><!-- End Promo Nav -->
+
+
+    </ul>
+  </aside><!-- End Sidebar -->
+
+  <main id="main" class="main">
+
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Lịch Sử Giao Dịch</h1>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Tổng quan trạng thái giao dịch</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="transactionPieChart" width="400" height="400"></canvas>
+        </div>
+
+      </div>
+
+      <!-- Bảng hiển thị lịch sử giao dịch -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Danh sách giao dịch</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th>Mã giao dịch</th>
+                <th>Ngày giao dịch</th>
+                <th>Số tiền</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody id="transactionTable">
+              <!-- Dữ liệu giao dịch sẽ được thêm vào đây -->
+            </tbody>
+          </table>
+          <!-- Pagination -->
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center" id="pagination">
+              <!-- Các nút phân trang sẽ được thêm vào đây -->
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+
+  </main><!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Cuong</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://bootstrapmade.com/">Cuong</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      let currentPage = 0; // Trang hiện tại (bắt đầu từ 0)
+      const pageSize = 10; // Số bản ghi mỗi trang
+
+      // Hàm fetch dữ liệu từ API
+      function fetchTransactions(page) {
+        const apiUrl = `http://localhost:8888/api/shop/order/admin/temp-order?page=${page}&size=${pageSize}`;
+
+        $.get(apiUrl, function (response) {
+          if (response.code === 200) {
+            renderTable(response.result.result);
+            renderPagination(response.result.meta);
+          } else {
+            console.error("Lỗi khi gọi API:", response.message);
+          }
+        }).fail(function (error) {
+          console.error("Lỗi:", error);
+        });
+      }
+
+      // Hàm hiển thị dữ liệu lên bảng
+      function renderTable(transactions) {
+        const tableBody = $("#transactionTable");
+        tableBody.empty(); // Xóa dữ liệu cũ
+
+        transactions.forEach(transaction => {
+          // Xác định trạng thái và màu sắc
+          let statusText = "Chưa cập nhật";
+          let badgeClass = "bg-secondary"; // Mặc định là xám
+
+          if (transaction.status === "success") {
+            statusText = "Thành công";
+            badgeClass = "bg-success"; // Màu xanh
+          } else if (transaction.status === "cancel") {
+            statusText = "Đã hủy";
+            badgeClass = "bg-danger"; // Màu đỏ
+          }
+
+          const row = `
+            <tr>
+                <td>${transaction.txnRef || "Không có"}</td>
+                <td>${new Date(transaction.createdAt).toLocaleDateString()}</td>
+                <td>${transaction.sumPrice.toLocaleString('vi-VN')} VND</td>
+                <td><span class="badge ${badgeClass}">${statusText}</span></td>
+            </tr>
+        `;
+          tableBody.append(row);
+        });
+      }
+
+
+      // Hàm hiển thị phân trang
+      function renderPagination(meta) {
+        const pagination = $("#pagination");
+        pagination.empty(); // Xóa các nút cũ
+
+        for (let i = 0; i < meta.pages; i++) {
+          const pageItem = `
+                <li class="page-item ${i === currentPage ? "active" : ""}">
+                    <button class="page-link" data-page="${i}">${i + 1}</button>
+                </li>
+            `;
+          pagination.append(pageItem);
+        }
+
+        // Gắn sự kiện khi bấm nút chuyển trang
+        $(".page-link").click(function () {
+          const page = $(this).data("page");
+          changePage(page);
+        });
+      }
+
+      // Hàm thay đổi trang
+      function changePage(page) {
+        currentPage = page;
+        fetchTransactions(currentPage);
+      }
+
+      // Gọi lần đầu để tải dữ liệu
+      fetchTransactions(currentPage);
+    });
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      const apiUrl = "http://localhost:8888/api/shop/order/admin/getAllTempOrder";
+
+      // Lấy dữ liệu từ API
+      $.get(apiUrl, function (response) {
+        if (response.code === 200 && response.result) {
+          const transactions = response.result;
+
+          // Thống kê số lượng theo trạng thái
+          const statusCounts = transactions.reduce((acc, transaction) => {
+            const status = transaction.status || "null";
+            acc[status] = (acc[status] || 0) + 1;
+            return acc;
+          }, {});
+
+          drawPieChart(statusCounts);
+        } else {
+          console.error("API trả về lỗi hoặc không có dữ liệu:", response.message);
+        }
+      }).fail(function (error) {
+        console.error("Lỗi khi gọi API:", error);
+      });
+
+      // Hàm vẽ biểu đồ tròn
+      function drawPieChart(statusCounts) {
+        const ctx = document.getElementById("transactionPieChart").getContext("2d");
+
+        // Lấy tổng số giao dịch
+        const totalTransactions = Object.values(statusCounts).reduce((a, b) => a + b, 0);
+
+        // Dữ liệu cho biểu đồ
+        new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: ["Thành công", "Đã hủy", "Không xác định"],
+            datasets: [{
+              data: [
+                statusCounts.success || 0,
+                statusCounts.cancel || 0,
+                statusCounts.null || 0
+              ],
+              backgroundColor: [
+                "#28a745", // Màu xanh cho success
+                "#dc3545", // Màu đỏ cho cancel
+                "#6c757d"  // Màu xám cho null
+              ],
+              hoverOffset: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            plugins: {
+              legend: {
+                position: "right"
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (tooltipItem) {
+                    const label = tooltipItem.label || "";
+                    const value = tooltipItem.raw || 0;
+                    const percentage = ((value / totalTransactions) * 100).toFixed(2);
+                    return `${label}: ${value} (${percentage}%)`;
+                  }
+                }
+              }
+            },
+            aspectRatio: 1,
+
+          }
+        });
+      }
+    });
+
+
+  </script>
+
+</body>
+
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const receiverId = localStorage.getItem("userId");
+    const token = localStorage.getItem("token");
+    let currentSenderId = null;
+
+    const messageList = document.getElementById("messageList");
+    const messageCount = document.getElementById("messageCount");
+    const messageCount_2 = document.getElementById("messageCount-2");
+    const messageModal = document.getElementById("messageModal");
+    const messageDetails = document.getElementById("messageDetails");
+    const messageInput = document.getElementById("messageInput");
+    const sendMessageBtn = document.getElementById("sendMessageBtn");
+
+    async function fetchMessages() {
+      try {
+        const response = await fetch(`http://localhost:8888/api/shop/message/latest?receiverId=${receiverId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const messages = data.result;
+
+        console.log("Messages:", messages);
+
+        // Cập nhật số lượng tin nhắn
+        messageCount.innerText = messages.length;
+        messageCount_2.innerText = messages.length;
+
+        // Xóa các tin nhắn cũ
+        messageList.querySelectorAll(".message-item").forEach((item) => item.remove());
+
+        // Lặp qua từng tin nhắn
+        for (const message of messages) {
+          try {
+            const userResponse = await fetch(`http://localhost:8888/api/authentication/user/${message.senderId}`, {
+              method: "GET",
+              headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (!userResponse.ok) {
+              throw new Error(`HTTP error! Status: ${userResponse.status}`);
+            }
+
+            const userData = await userResponse.json();
+            const user = userData.result;
+
+            // Cập nhật avatar và username cho modal
+            const avatarMesElement = document.querySelector("#avatarMes");
+            const usernameMesElement = document.querySelector("#usernameMess");
+
+            if (avatarMesElement) {
+              avatarMesElement.src = user.avatar
+                ? `http://localhost:8888/images/avatar/${user.avatar}`
+                : "assets/img/about/avatar.jpg";
+            }
+
+            if (usernameMesElement) {
+              usernameMesElement.innerText = user.username || "Người dùng";
+            }
+
+            const avt = user.avatar
+              ? `http://localhost:8888/images/avatar/${user.avatar}`
+              : "assets/img/messages-1.jpg";
+
+            const messageItem = document.createElement("li");
+            messageItem.classList.add("message-item");
+            messageItem.dataset.senderId = message.senderId;
+
+            messageItem.innerHTML = `
+                      <a href="#">
+                          <img src="${avt}" alt class="rounded-circle">
+                          <div>
+                              <h4>${message.senderId === receiverId ? "Bạn" : message.senderName}</h4>
+                              <p>${message.message}</p>
+                              <p>${formatTimeAgo2(message.createdAt)}</p>
+                          </div>
+                      </a>
+                  `;
+
+            // Thêm vào danh sách tin nhắn
+            messageList.insertBefore(messageItem, messageList.querySelector(".dropdown-footer"));
+
+            // Thêm sự kiện click để lấy tin nhắn của người gửi
+            messageItem.addEventListener("click", () => fetchMessagesFromSender(message.senderId));
+          } catch (innerError) {
+            console.error("Lỗi khi lấy thông tin người dùng:", innerError);
+          }
+        }
+      } catch (error) {
+        console.error("Lỗi khi lấy danh sách tin nhắn:", error);
+      }
+    }
+
+
+    async function fetchMessagesFromSender(senderId) {
+      try {
+        // Lấy tin nhắn gửi đi
+        const responseSent = await fetch(
+          `http://localhost:8888/api/shop/message/both?senderId=${receiverId}&receiverId=${senderId}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        const sentMessages = await responseSent.json();
+
+        // Lấy tin nhắn nhận vào
+        const responseReceived = await fetch(
+          `http://localhost:8888/api/shop/message/both2?receiverId=${receiverId}&senderId=${senderId}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        const receivedMessages = await responseReceived.json();
+
+        // Kết hợp tin nhắn gửi và nhận
+        const messages = [
+          ...sentMessages.result.map((msg) => ({ ...msg, type: "sent" })),
+          ...receivedMessages.result.map((msg) => ({ ...msg, type: "received" })),
+        ];
+
+        // Sắp xếp theo thời gian (cũ đến mới)
+        messages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
+        // Hiển thị tin nhắn
+        currentSenderId = senderId;
+        messageDetails.innerHTML = messages
+          .map((msg) => {
+            const messageClass = msg.type === "sent" ? "sender-message" : "receiver-message";
+            return `
+              <li class="${messageClass}">
+                <div class="message-content">${msg.message}</div>
+                <small>${formatTimeAgo(msg.createdAt)}</small>
+              </li>`;
+          })
+          .join("");
+
+        // Đảm bảo cuộn đến cuối modal khi mở
+        setTimeout(() => {
+          const lastMessage = messageDetails.lastElementChild;
+          if (lastMessage) {
+            lastMessage.scrollIntoView({ behavior: "smooth", block: "end" });
+          }
+        }, 100); // Đợi một chút để nội dung được render trước khi cuộn xuống
+
+        openModal();
+      } catch (error) {
+        console.error("Lỗi khi lấy tin nhắn chi tiết:", error);
+      }
+    }
+
+    function openModal() {
+      messageModal.style.display = "block";
+      // Đảm bảo cuộn đến cuối modal khi mở
+      setTimeout(() => {
+        const lastMessage = messageDetails.lastElementChild;
+        if (lastMessage) {
+          lastMessage.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+      }, 100); // Đợi một chút để nội dung được render trước khi cuộn xuống
+    }
+
+
+    async function sendMessage() {
+      const messageContent = messageInput.value.trim();
+      if (!messageContent || !currentSenderId) return;
+
+      const messageData = {
+        senderId: receiverId,
+        receiverId: currentSenderId,
+        message: messageContent,
+      };
+
+      try {
+        const response = await fetch("http://localhost:8888/api/shop/message", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(messageData),
+        });
+
+        if (response.ok) {
+          const newMessage = await response.json();
+          messageDetails.insertAdjacentHTML(
+            "beforeend",
+            `<li class="receiver-message">
+              <div class="message-content">${newMessage.message}</div>
+              <small>${formatTimeAgo(newMessage.createdAt)}</small>
+            </li>`
+          );
+          messageInput.value = "";
+
+          // Sau khi gửi tin nhắn, tái tải lại danh sách tin nhắn
+          fetchMessagesFromSender(currentSenderId); // Tải lại tin nhắn từ senderId hiện tại
+        }
+      } catch (error) {
+        console.error("Lỗi khi gửi tin nhắn:", error);
+      }
+    }
+
+    function formatTimeAgo(dateString) {
+      const date = new Date(dateString);
+      const now = new Date();
+      const diff = Math.floor((now - date) / 1000);
+
+      if (diff < 60) return `${diff} giây trước`;
+      if (diff < 3600) return `${Math.floor(diff / 60)} phút trước`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)} giờ trước`;
+      return `${Math.floor(diff / 86400)} ngày trước`;
+    }
+
+    async function fetchAvatar() {
+      try {
+        const userId = localStorage.getItem("userId");
+        // Gửi yêu cầu API
+        const response = await fetch(`http://localhost:8888/api/authentication/user/${userId}`);
+    
+        // Kiểm tra trạng thái phản hồi
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        // Phân tích dữ liệu JSON
+        const data = await response.json();
+        const avt = data?.result.result; // Dùng optional chaining để đảm bảo tính an toàn
+    
+        console.log("Avatar Data:", avt);
+    
+        // Lấy phần tử ảnh từ DOM
+        const avtE = document.querySelector("#avtView");
+    
+        if (avtE) {
+          // Gán nguồn ảnh dựa trên dữ liệu từ API
+          avtE.src = `http://localhost:8888/images/avatar/${avt.avatar}`;
+        } else {
+          console.warn("Element with ID 'avtView' not found.");
+        }
+      } catch (error) {
+        // Log lỗi ra console
+        console.error("Error fetching avatar:", error);
+      }
+    }
+
+    function formatTimeAgo2(dateString) {
+      const date = new Date(dateString); // JavaScript hiểu tốt định dạng ISO 8601
+      date.setHours(date.getHours() + 7); // Cộng thêm 7 giờ để điều chỉnh sang UTC+7
+      const now = new Date();
+      const diff = Math.floor((now - date) / 1000); // Hiệu số thời gian tính bằng giây
+
+      if (diff < 60) {
+        return `${diff} giây trước`;
+      }
+
+      if (diff < 3600) {
+        const minutes = Math.round(diff / 60); // Làm tròn phút
+        return `${minutes} phút trước`;
+      }
+
+      if (diff < 86400) {
+        const hours = Math.round(diff / 3600); // Làm tròn giờ
+        return `${hours} giờ trước`;
+      }
+
+      return `${Math.floor(diff / 86400)} ngày trước`; // Nếu lớn hơn 1 ngày
+    }
+
+    function openModal() {
+      messageModal.style.display = "block";
+    }
+
+    function closeModal() {
+      messageModal.style.display = "none";
+    }
+    
+
+    document.querySelector(".close-btn").addEventListener("click", closeModal);
+    sendMessageBtn.addEventListener("click", sendMessage);
+
+    fetchMessages();
+    fetchAvatar();
+  });
+
+</script>
+
+<style>
+  #messageList {
+    width: 300px;
+    /* Cố định độ rộng của dropdown */
+    overflow-y: auto;
+    /* Thêm thanh cuộn khi nội dung vượt quá chiều cao */
+  }
+
+  #messageList .dropdown-header {
+    font-weight: bold;
+  }
+
+  #messageList hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+  }
+
+
+  .message-modal {
+    display: none;
+    position: fixed;
+    top: 7%;
+    left: 81%;
+    transform: translateX(-50%);
+    width: 310px;
+    max-height: 70%;
+    overflow-y: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+
+
+  .message-modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .message-modal ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .message-modal ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sender-message,
+  .receiver-message {
+    font-size: 10px;
+  }
+
+  .sender-message {
+    text-align: right;
+  }
+
+  .receiver-message {
+    text-align: left;
+  }
+
+  .message-content {
+    display: inline-block;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .sender-message .message-content {
+    background-color: #f0f0f0;
+  }
+
+  .receiver-message .message-content {
+    background-color: #d1e7ff;
+  }
+
+  .message-modal-content {
+    padding: 20px;
+  }
+
+  .send-message-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  #messageInput {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  #sendMessageBtn {
+    width: 35px;
+    font-size: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #sendMessageBtn:hover {
+    background-color: #0056b3;
+  }
+</style>

@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content name="description">
+  <meta content name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo-haui-size.png" rel="icon">
+  <link href="assets/img/logo-haui-size.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/styleAdmin.css" rel="stylesheet">
+  <style>
+    #imagePreviewContainer img {
+      max-height: 150px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Thay đổi tên cửa hàng -->
+      <!-- <a href="index.html" class="logo d-flex align-items-center"> -->
+      <img src="Screenshot 2024-10-17 142441.png" alt="Logo cửa hàng">
+      <!-- <span class="d-none d-lg-block">Ananas</span> -->
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Tìm kiếm sản phẩm, đơn hàng..." title="Nhập từ khóa tìm kiếm">
+        <button type="submit" title="Tìm kiếm"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <!-- Thông báo Đơn hàng -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">5</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              Bạn có 5 thông báo mới
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-cart text-info"></i>
+              <div>
+                <h4>Đơn hàng mới</h4>
+                <p>Đơn hàng #12345 vừa được đặt</p>
+                <p>30 phút trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-truck text-warning"></i>
+              <div>
+                <h4>Đơn hàng đang giao</h4>
+                <p>Đơn hàng #54321 đang trên đường giao</p>
+                <p>1 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-check-circle text-success"></i>
+              <div>
+                <h4>Đơn hàng đã giao</h4>
+                <p>Đơn hàng #67890 đã được giao thành công</p>
+                <p>2 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-x-circle text-danger"></i>
+              <div>
+                <h4>Đơn hàng bị hủy</h4>
+                <p>Đơn hàng #98765 đã bị hủy</p>
+                <p>4 giờ trước</p>
+              </div>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="dropdown-footer">
+              <a href="#">Hiển thị tất cả thông báo</a>
+            </li>
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <!-- Tin nhắn Khách hàng -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">2</span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+            <li class="dropdown-header">
+              Bạn có 2 tin nhắn mới
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-3.jpg" alt class="rounded-circle">
+                <div>
+                  <h4>Đỗ Thành Đạt</h4>
+                  <p>Sản phẩm này có kích cỡ 42 không?</p>
+                  <p>2 giờ trước</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-1.jpg" alt class="rounded-circle">
+                <div>
+                  <h4>Đỗ Thị Ling Ling</h4>
+                  <p>Tôi muốn đổi sản phẩm, quy trình như thế nào?</p>
+                  <p>4 giờ trước</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="dropdown-footer">
+              <a href="#">Hiển thị tất cả tin nhắn</a>
+            </li>
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
+
+        <!-- Thông tin Tài khoản -->
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img id="avtView" src="" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Quản lý</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Quản lý Cửa hàng</h6>
+              <span>Quản lý hệ thống</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>Thông tin cá nhân</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="login.html">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span>
+              </a>
+            </li>
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="index(2).html">
+          <i class="bi bi-grid"></i>
+          <span>Trang chủ</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <!-- Quản lý Sản phẩm -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#products-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-box-seam"></i><span>Quản Lý Sản Phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="products-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-shoe.html"><i class="bi bi-plus-circle"></i><span>Sản Phẩm</span></a></li>
+          <li><a href="list-shoes.html"><i class="bi bi-list-ul"></i><span>Danh Mục Sản Phẩm</span></a></li>
+          <li><a href="inventory-report.html"><i class="bi bi-box"></i><span>Báo cáo Tồn kho</span></a></li>
+          <!-- <li><a href="edit-shoe.html"><i class="bi bi-pencil-square"></i><span>Cập nhật Giày</span></a></li> -->
+          <!-- <li><a href="shoe-inventory.html"><i class="bi bi-box"></i><span>Quản lý Tồn kho</span></a></li> -->
+        </ul>
+      </li><!-- End Products Nav -->
+
+      <!-- Quản lý Đơn hàng -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cart"></i><span>Quản lý Đơn hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="orders-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="new-order.html"><i class="bi bi-plus-square"></i><span>Theo dõi đơn hàng</span></a></li>
+
+        </ul>
+      </li><!-- End Orders Nav -->
+
+      <!-- Quản lý Khách hàng -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#customers-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Quản lý Khách hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="customers-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-customer.html"><i class="bi bi-person-plus"></i><span>Quản lý khách hàng</span></a></li>
+        </ul>
+      </li><!-- End Customers Nav -->
+
+      <!-- Quản lý Báo cáo -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#sales-report-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Báo cáo Doanh thu</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="sales-report-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="daily-sales.html"><i class="bi bi-calendar-event"></i><span>Doanh thu</span></a></li>
+          <li><a href="customer-history.html"><i class="bi bi-card-list"></i><span>Lịch sử giao dịch</span></a></li>
+        </ul>
+      </li><!-- End Sales Report Nav -->
+
+      <!-- Quản lý Khuyến mãi -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#voucher-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gift"></i><span>Quản lý khuyến mãi</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="voucher-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-promo.html"><i class="bi bi-gift"></i><span>Quản lý Khuyến mãi</span></a></li>
+        </ul>
+      </li><!-- End Promo Nav -->
+
+
+    </ul>
+  </aside><!-- End Sidebar -->
+
+  <main id="main" class="main">
+
+    <div class="container mt-5">
+      <div class="card">
+          <div class="card-header">
+              <h2 class="text-center text-dark">Quản lí sản phẩm</h2>
+          </div>
+          <div class="card-body">
+              <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">Thêm mới</button>
+              <div class="table-responsive">
+                  <table class="table table-bordered text-center">
+                      <thead class="table-light">
+                          <tr>
+                              <th>#</th>
+                              <th>Tên sản phẩm</th>
+                              <th>Giá</th>
+                              <th>Giảm giá (%)</th>
+                              <th>Chất liệu</th>
+                              <th>Danh mục</th>
+                              <th>Đã bán</th>
+                              <th>Hành động</th>
+                          </tr>
+                      </thead>
+                      <tbody id="productTable">
+                          <!-- Dữ liệu sẽ được thêm động ở đây -->
+                      </tbody>
+                  </table>
+              </div>
+              <nav aria-label="Page navigation" id="pagination" class="mt-4">
+                  <!-- Phân trang sẽ được thêm động ở đây -->
+              </nav>
+          </div>
+      </div>
+  </div>
+  
+
+    <!-- Modal Thêm sản phẩm -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addProductModalLabel">Thêm sản phẩm mới</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="productForm">
+              <!-- Thông tin cơ bản -->
+              <div class="mb-3">
+                <label for="productName" class="form-label">Tên sản phẩm</label>
+                <input type="text" id="productName" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Mô tả</label>
+                <textarea id="description" class="form-control" rows="3" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label">Giá</label>
+                <input type="number" id="price" class="form-control" step="0.01" required>
+              </div>
+              <div class="mb-3">
+                <label for="discount" class="form-label">Giảm giá (%)</label>
+                <input type="number" id="discount" class="form-control" step="0.01">
+              </div>
+              <div class="mb-3">
+                <label for="material" class="form-label">Chất liệu</label>
+                <input type="text" id="material" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Danh mục</label>
+                <input type="text" id="category" class="form-control" required>
+              </div>
+
+              <!-- Biến thể sản phẩm -->
+              <h4 class="mt-4">Biến thể sản phẩm</h4>
+              <div id="variantsContainer">
+                <div class="variant mb-3">
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label for="size" class="form-label">Size</label>
+                      <input type="number" class="form-control size" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Màu sắc</label>
+                      <select class="form-select color" required>
+                        <option value="Black">Đen</option>
+                        <option value="White">Trắng</option>
+                        <option value="Blue">Xanh</option>
+                        <option value="Red">Đỏ</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="stock" class="form-label">Số lượng</label>
+                      <input type="number" class="form-control stock" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" id="addVariant" class="btn btn-secondary mb-3">Thêm biến thể</button>
+              <!-- Thêm ảnh sản phẩm -->
+              <div class="mb-3">
+                <label for="productImages" class="form-label">Thêm ảnh sản phẩm</label>
+                <input type="file" id="productImages" class="form-control" multiple accept="image/*">
+              </div>
+              <div id="imagePreviewContainer" class="row g-3"></div>
+
+
+
+              <!-- Nút gửi -->
+              <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal sửa sản phẩm -->
+    <div class="modal fade" id="updateProductModal" tabindex="-1" aria-labelledby="updateProductModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateProductModalLabel">Sửa sản phẩm</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="uproductForm">
+              <!-- Thông tin sản phẩm -->
+              <div class="mb-3">
+                <label for="uproductName" class="form-label">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="uproductName" required>
+              </div>
+              <div class="mb-3">
+                <label for="udescription" class="form-label">Mô tả</label>
+                <textarea class="form-control" id="udescription" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="uprice" class="form-label">Giá</label>
+                <input type="number" class="form-control" id="uprice" required>
+              </div>
+              <div class="mb-3">
+                <label for="udiscount" class="form-label">Giảm giá</label>
+                <input type="number" class="form-control" id="udiscount">
+              </div>
+              <div class="mb-3">
+                <label for="umaterial" class="form-label">Chất liệu</label>
+                <input type="text" class="form-control" id="umaterial" required>
+              </div>
+              <div class="mb-3">
+                <label for="ucategory" class="form-label">Danh mục</label>
+                <input type="text" class="form-control" id="ucategory" required>
+              </div>
+
+              <!-- Thông tin biến thể sản phẩm -->
+              <h4 class="mt-4">Biến thể sản phẩm</h4>
+              <div id="uvariantsContainer">
+                <!-- Các biến thể sẽ được thêm vào đây động -->
+              </div>
+
+              <!-- Ẩn productId để gửi khi chỉnh sửa -->
+              <input type="hidden" id="uproductId">
+              <button type="button" id="uaddVariant" class="btn btn-secondary mb-3">Thêm biến thể</button>
+
+              <!-- Thêm ảnh sản phẩm -->
+              <div class="mb-3">
+                <label for="uproductImages" class="form-label">Thêm ảnh sản phẩm</label>
+                <input type="file" id="uproductImages" class="form-control" multiple accept="image/*">
+              </div>
+              <div id="uimagePreviewContainer" class="row g-3"></div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      async function fetchAvatar() {
+        try {
+          const userId = localStorage.getItem("userId");
+          // Gửi yêu cầu API
+          const response = await fetch(`http://localhost:8888/api/authentication/user/${userId}`);
+      
+          // Kiểm tra trạng thái phản hồi
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+      
+          // Phân tích dữ liệu JSON
+          const data = await response.json();
+          const avt = data?.result.result; // Dùng optional chaining để đảm bảo tính an toàn
+      
+          console.log("Avatar Data:", avt);
+      
+          // Lấy phần tử ảnh từ DOM
+          const avtE = document.querySelector("#avtView");
+      
+          if (avtE) {
+            // Gán nguồn ảnh dựa trên dữ liệu từ API
+            avtE.src = `http://localhost:8888/images/avatar/${avt.avatar}`;
+          } else {
+            console.warn("Element with ID 'avtView' not found.");
+          }
+        } catch (error) {
+          // Log lỗi ra console
+          console.error("Error fetching avatar:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchAvatar();
+      });
+      $(document).ready(function () {
+        const apiUrl = "http://localhost:8888/api/shop/product";
+        let currentPage = 0;
+        let pageSize = 10;
+
+        // Hàm lấy danh sách sản phẩm
+        function fetchProducts(page) {
+          $.ajax({
+            url: `${apiUrl}?page=${page}&size=${pageSize}`,
+            method: "GET",
+            success: function (response) {
+              if (response.code === 200) {
+                displayProducts(response.result.result);
+                setupPagination(response.result.meta);
+              } else {
+                alert("Lỗi khi lấy dữ liệu sản phẩm.");
+              }
+            },
+            error: function () {
+              alert("Không thể kết nối đến API.");
+            }
+          });
+        }
+        
+
+        // Hàm hiển thị danh sách sản phẩm
+        function displayProducts(products) {
+          const productTable = $("#productTable");
+          productTable.empty();
+          products.forEach((product, index) => {
+            const productRow = `
+                  <tr data-id="${product.productId}">
+                      <td>${index + 1}</td>
+                      <td>${product.productName}</td>
+                      <td>${product.price.toFixed(2)}</td>
+                      <td>${product.discount}%</td>
+                      <td>${product.material}</td>
+                      <td>${product.category}</td>
+                      <td>${product.soldQuantity}</td>
+                      <td>
+                          <button class="btn btn-warning btn-sm">Sửa</button>
+                          <button class="btn btn-danger btn-sm delete-product">Xóa</button>
+                      </td>
+                  </tr>
+              `;
+            productTable.append(productRow);
+          });
+          // Thêm sự kiện xóa sau khi hiển thị sản phẩm
+          attachDeleteEvents();
+        }
+
+        // Hàm tạo phân trang
+        function setupPagination(meta) {
+          const pagination = $("#pagination");
+          pagination.empty();
+
+          let pageLinks = `
+                  <ul class="pagination justify-content-center">
+                      ${meta.page > 0
+              ? `<li class="page-item"><a class="page-link" href="#" data-page="${meta.page - 1}">Trước</a></li>`
+              : ""}
+              `;
+
+          for (let i = 0; i < meta.pages; i++) {
+            pageLinks += `
+                      <li class="page-item ${i === meta.page - 1 ? "active" : ""}">
+                          <a class="page-link" href="#" data-page="${i}">${i + 1}</a>
+                      </li>
+                  `;
+          }
+
+          pageLinks += `
+                      ${meta.page < meta.pages - 1
+              ? `<li class="page-item"><a class="page-link" href="#" data-page="${meta.page + 1}">Sau</a></li>`
+              : ""}
+                  </ul>
+              `;
+
+          pagination.append(pageLinks);
+
+          // Bắt sự kiện chuyển trang
+          $(".page-link").on("click", function (e) {
+            e.preventDefault();
+            const page = $(this).data("page");
+            if (page !== undefined) {
+              currentPage = page;
+              fetchProducts(page);
+            }
+          });
+        }
+
+        // Hàm xóa sản phẩm
+        function deleteProduct(productId) {
+          console.log(productId)
+          if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) {
+            $.ajax({
+              url: `${apiUrl}/${productId}`,
+              method: "DELETE",
+              success: function () {
+                fetchProducts(currentPage); // Tải lại danh sách sản phẩm
+                alert("Xóa sản phẩm thành công!");
+              },
+              error: function () {
+                alert("Lỗi khi xóa sản phẩm!");
+              }
+            });
+          }
+        }
+
+        // Thêm sự kiện cho nút xóa
+        function attachDeleteEvents() {
+          $(".delete-product").on("click", function () {
+            const productId = $(this).closest("tr").data("id");
+            deleteProduct(productId);
+          });
+        }
+
+        // Gọi API lần đầu
+        fetchProducts(currentPage);
+
+        // Thêm biến thể mới
+        $('#addVariant').on('click', function () {
+          const variantTemplate = `
+                  <div class="variant mb-3">
+                      <div class="row g-3">
+                          <div class="col-md-4">
+                              <label class="form-label">Size</label>
+                              <input type="number" class="form-control size" required>
+                          </div>
+                          <div class="col-md-4">
+                              <label class="form-label">Màu sắc</label>
+                              <select class="form-select color" required>
+                                  <option value="Black">Đen</option>
+                                  <option value="White">Trắng</option>
+                                  <option value="Blue">Xanh</option>
+                                  <option value="Red">Đỏ</option>
+                              </select>
+                          </div>
+                          <div class="col-md-4">
+                              <label class="form-label">Số lượng</label>
+                              <input type="number" class="form-control stock" required>
+                          </div>
+                      </div>
+                  </div>`;
+          $('#variantsContainer').append(variantTemplate);
+        });
+        // Thêm biến thể mới
+        $('#uaddVariant').on('click', function () {
+          const variantTemplate = `
+                  <div class="variant mb-3">
+                      <div class="row g-3">
+                          <div class="col-md-4">
+                              <label class="form-label">Size</label>
+                              <input type="number" class="form-control size" required>
+                          </div>
+                          <div class="col-md-4">
+                              <label class="form-label">Màu sắc</label>
+                              <select class="form-select color" required>
+                                  <option value="Black">Đen</option>
+                                  <option value="White">Trắng</option>
+                                  <option value="Blue">Xanh</option>
+                                  <option value="Red">Đỏ</option>
+                              </select>
+                          </div>
+
+                          <div class="col-md-4">
+                              <label class="form-label">Số lượng</label>
+                              <input type="number" class="form-control stock" required>
+                          </div>
+                      </div>
+                  </div>`;
+          $('#uvariantsContainer').append(variantTemplate);
+        });
+
+        //xử lý thêm ảnh sp
+        $('#productImages').on('change', function () {
+          const files = this.files; // Lấy danh sách file
+          const $previewContainer = $('#imagePreviewContainer'); // Container để hiển thị ảnh
+
+          $previewContainer.empty(); // Xóa các ảnh cũ
+
+          // Lặp qua từng file
+          Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) { // Chỉ xử lý file hình ảnh
+              const reader = new FileReader();
+
+              reader.onload = function (e) {
+                const $col = $('<div class="col-md-3"></div>');
+                const $img = $('<img>')
+                  .attr('src', e.target.result)
+                  .attr('alt', 'Ảnh sản phẩm')
+                  .addClass('img-thumbnail');
+
+                $col.append($img);
+                $previewContainer.append($col);
+              };
+
+              reader.readAsDataURL(file); // Đọc file
+            }
+          });
+        });
+
+        //xử lý thêm ảnh sp
+        $('#uproductImages').on('change', function () {
+          const files = this.files; // Lấy danh sách file
+          const $previewContainer = $('#uimagePreviewContainer'); // Container để hiển thị ảnh
+
+          $previewContainer.empty(); // Xóa các ảnh cũ
+
+          // Lặp qua từng file
+          Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) { // Chỉ xử lý file hình ảnh
+              const reader = new FileReader();
+
+              reader.onload = function (e) {
+                const $col = $('<div class="col-md-3"></div>');
+                const $img = $('<img>')
+                  .attr('src', e.target.result)
+                  .attr('alt', 'Ảnh sản phẩm')
+                  .addClass('img-thumbnail');
+
+                $col.append($img);
+                $previewContainer.append($col);
+              };
+
+              reader.readAsDataURL(file); // Đọc file
+            }
+          });
+        });
+
+
+        // Xử lý gửi form
+        $('#productForm').on('submit', function (e) {
+          e.preventDefault();
+
+          // Thu thập dữ liệu sản phẩm
+          const product = {
+            productName: $('#productName').val(),
+            description: $('#description').val(),
+            price: parseFloat($('#price').val()),
+            discount: parseFloat($('#discount').val() || 0),
+            material: $('#material').val(),
+            category: $('#category').val(),
+            variants: []
+          };
+
+          // Thu thập dữ liệu biến thể
+          $('#variantsContainer .variant').each(function () {
+            const size = parseInt($(this).find('.size').val());
+            const color = $(this).find('.color').val();
+            const stock = parseInt($(this).find('.stock').val());
+            product.variants.push({ size, color, stock });
+          });
+
+          console.log(product);
+
+          // Gửi dữ liệu đến API
+          $.ajax({
+            url: 'http://localhost:8888/api/shop/product',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(product),
+            success: function (response) {
+              console.log(response);
+              const productIdx = response.result.productId;
+              const files = $('#productImages')[0].files;
+
+              if (files.length === 0) {
+                alert('Vui lòng chọn ít nhất một ảnh.');
+                return;
+              }
+
+              const formData = new FormData();
+
+              // Thêm từng ảnh vào FormData
+              Array.from(files).forEach(file => {
+                formData.append('image', file);
+              });
+
+              // Gửi request PUT
+              $.ajax({
+                url: `http://localhost:8888/api/shop/product/add_images/${productIdx}`,
+                type: 'PUT',
+                data: formData,
+                processData: false, // Bắt buộc để jQuery không xử lý dữ liệu
+                contentType: false, // Bắt buộc để gửi đúng định dạng `form-data`
+                success: function (response) {
+                  alert('Thêm ảnh thành công!');
+                  console.log(response);
+                },
+                error: function (xhr, status, error) {
+                  alert('Có lỗi xảy ra khi thêm ảnh!');
+                  console.error(xhr.responseText);
+                }
+              });
+              alert('Thêm sản phẩm thành công!');
+              location.reload();
+            },
+            error: function () {
+              alert('Lỗi khi thêm sản phẩm!');
+            }
+          });
+        });
+
+
+        // Sự kiện khi người dùng nhấn nút Sửa
+        $(document).on('click', '.btn-warning', function () {
+          const productId = $(this).closest("tr").data("id");
+          $.ajax({
+            url: `${apiUrl}/${productId}`,
+            method: "GET",
+            success: function (response) {
+              if (response.code === 200) {
+                const product = response.result;
+                $('#uproductId').val(product.productId); // Lưu productId
+                $('#uproductName').val(product.productName);
+                $('#udescription').val(product.description);
+                $('#uprice').val(product.price);
+                $('#udiscount').val(product.discount);
+                $('#umaterial').val(product.material);
+                $('#ucategory').val(product.category);
+                const images = response.result.images;
+
+                const $previewContainer = $('#uimagePreviewContainer');
+                $previewContainer.empty();
+                Array.from(images).forEach(image => {
+                  console.log(image);
+                  const loadimage = ` 
+                    <div class="col-md-3">
+                      <img src="http://localhost:8888/images/product/${image}" class="img-thumbnail" alt="ảnh sản phẩm"">
+                    </div>
+                    `;
+                  $previewContainer.append(loadimage);
+                })
+
+
+                // Lấy danh sách biến thể của sản phẩm
+                $.ajax({
+                  url: `${apiUrl}/variants/${productId}`,
+                  method: "GET",
+                  success: function (variantResponse) {
+                    if (variantResponse.code === 200) {
+                      const variants = variantResponse.result;
+                      $('#uvariantsContainer').empty(); // Xóa các biến thể cũ
+                      variants.forEach(variant => {
+                        const variantTemplate = `
+                                          <div class="variant mb-3" data-variant-id="${variant.variantId}">
+                                              <div class="row g-3">
+                                                  <div class="col-md-4">
+                                                      <label class="form-label">Size</label>
+                                                      <input type="number" class="form-control size" value="${variant.size}" required>
+                                                  </div>
+                                                 
+                                                  <div class="col-md-4">
+                                                      <label class="form-label">Màu sắc</label>
+                                                      <select class="form-select color" required>
+                                                          <option value="Black" ${variant.color === "Black" ? "selected" : ""}>Đen</option>
+                                                          <option value="White" ${variant.color === "White" ? "selected" : ""}>Trắng</option>
+                                                          <option value="Blue" ${variant.color === "Blue" ? "selected" : ""}>Xanh</option>
+                                                          <option value="Red" ${variant.color === "Red" ? "selected" : ""}>Đỏ</option>
+                                                      </select>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <label class="form-label">Số lượng</label>
+                                                      <input type="number" class="form-control stock" value="${variant.stock}" required>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      `;
+                        $('#uvariantsContainer').append(variantTemplate);
+                      });
+                    } else {
+                      alert("Lỗi khi lấy danh sách biến thể.");
+                    }
+                  },
+                  error: function () {
+                    alert("Không thể kết nối đến API.");
+                  }
+                });
+
+
+                $('#updateProductModal').modal('show');
+              } else {
+                alert("Lỗi khi lấy dữ liệu sản phẩm.");
+              }
+            },
+            error: function () {
+              alert("Không thể kết nối đến API.");
+            }
+          });
+        });
+
+        // Sự kiện khi người dùng gửi form sửa sản phẩm
+        $('#uproductForm').on('submit', function (e) {
+          e.preventDefault();
+          const productId = $('#uproductId').val();
+          const product = {
+            productName: $('#uproductName').val(),
+            description: $('#udescription').val(),
+            price: parseFloat($('#uprice').val()),
+            discount: parseFloat($('#udiscount').val() || 0),
+            material: $('#umaterial').val(),
+            category: $('#ucategory').val(),
+            variants: []
+          };
+
+
+          $('#uvariantsContainer .variant').each(function () {
+            const variantId = $(this).data("variant-id");
+            const size = parseInt($(this).find('.size').val());
+            const color = $(this).find('.color').val();
+            const stock = parseInt($(this).find('.stock').val());
+            product.variants.push({ variantId, size, color, stock });
+          });
+
+          $.ajax({
+            url: `${apiUrl}/${productId}`,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(product),
+            success: function () {
+
+              const files = $('#uproductImages')[0].files;
+
+              if (files.length === 0) {
+                alert('Vui lòng chọn ít nhất một ảnh.');
+                return;
+              }
+
+              const formData = new FormData();
+
+              // Thêm từng ảnh vào FormData
+              Array.from(files).forEach(file => {
+                formData.append('image', file);
+              });
+
+              // Gửi request PUT
+              $.ajax({
+                url: `http://localhost:8888/api/shop/product/add_images/${productId}`,
+                type: 'PUT',
+                data: formData,
+                processData: false, // Bắt buộc để jQuery không xử lý dữ liệu
+                contentType: false, // Bắt buộc để gửi đúng định dạng `form-data`
+                success: function (response) {
+                  alert('Thêm ảnh thành công!');
+                  console.log(response);
+                },
+                error: function (xhr, status, error) {
+                  alert('Có lỗi xảy ra khi thêm ảnh!');
+                  console.error(xhr.responseText);
+                }
+              });
+              alert('Sửa sản phẩm thành công!');
+              location.reload();
+            },
+            error: function () {
+              alert('Lỗi khi sửa sản phẩm!');
+            }
+          });
+        });
+      });
+    </script>
+
+  </main><!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Cuong</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://bootstrapmade.com/">Cuong</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

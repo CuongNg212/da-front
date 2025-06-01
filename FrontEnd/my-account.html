@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+    <title>Ananas - Shoes Store</title>
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <!--=== All Plugins CSS ===-->
+    <link href="assets/css/plugins.css" rel="stylesheet">
+    <!--=== All Vendor CSS ===-->
+    <link href="assets/css/vendor.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Modernizer JS -->
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+    <!-- Start Header Area -->
+    <header class="header-area">
+        <!-- main header start -->
+        <div class="main-header d-none d-lg-block">
+
+
+            <!-- header middle area start -->
+            <div class="header-main-area sticky">
+                <div class="container">
+                    <div class="row align-items-center position-relative">
+                        <!-- start logo area -->
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="index-2.html">
+                                    <img src="assets/img/logo/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- start logo area -->
+
+                        <!-- main menu area start -->
+                        <div class="col-lg-8 position-static">
+                            <div class="main-menu-area">
+                                <div class="main-menu">
+                                    <!-- main menu navbar start -->
+                                    <nav class="desktop-menu">
+                                        <ul>
+                                            <li class=""><a href="index-2.html">Trang chủ</a></li>
+                                            <li><a href="shop.html">Cửa hàng</a></li>
+                                            <li><a href="contact-us.html">Liên hệ</a></li>
+                                        </ul>
+                                        <ul class="mt-1 mb-5">
+                                            <li>
+                                                <input type="text" id="searchInput" style="width: 500px;" placeholder="Nhập sản phẩm cần tìm kiếm...">
+                                                <button id="searchBtn"><i class="ion-ios-search-strong"></i> Tìm kiếm</button>
+                                            </li>
+                                        </ul>
+                                        
+                                        <div id="searchResults" class="search-results" style="display: none; width: 500px; border: 1px solid #ccc; padding: 10px; max-height: 300px; overflow-y: auto; margin-top: 10px;"></div>                                        
+                                    
+                                    </nav>
+                                    <!-- main menu navbar end -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- main menu area end -->
+
+                        <!-- mini cart area start -->
+                        <div class="col-lg-2">
+                            <div class="header-configure-wrapper">
+                                <div class="header-configure-area">
+                                    <ul class="nav justify-content-end">
+                                        
+                                        <li class="user-hover">
+                                            <a href="#">
+                                                <i class="ion-ios-gear-outline"></i>
+                                            </a>
+                                            <ul class="dropdown-list">
+                                                <li><a href="login.html">Đăng nhập</a></li>
+                                                <li><a href="register.html">Đăng ký</a></li>
+                                                <li><a href="my-account.html">Tài khoản</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="minicart-btn">
+                                                <i class="ion-bag"></i>
+                                                <div class="notification" id="cart-quantity">0</div>
+                                            </a>
+                                        </li>
+                                        <!-- Thêm ảnh user -->
+                                        <li class="user-thumbnail">
+                                            <a href="my-account.html">
+                                                <img src="" alt="User" class="user-image">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- mini cart area end -->
+                    </div>
+                </div>
+            </div>
+            <!-- header middle area end -->
+        </div>
+        <!-- main header start -->
+
+        <!-- mobile header start -->
+        <div class="mobile-header d-lg-none d-md-block sticky">
+    </header>
+    <!-- end Header Area -->
+
+    <!-- main wrapper start -->
+    <main>
+
+        <!-- my account wrapper start -->
+        <div class="my-account-wrapper mt-5 mb-5">
+            <div class="container custom-container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- My Account Page Start -->
+                        <div class="myaccount-page-wrapper">
+                            <!-- My Account Tab Menu Start -->
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="myaccount-tab-menu nav" role="tablist">
+                                        <button class="active" id="account-info_btn" type="button"
+                                            data-bs-target="#account-info" data-bs-toggle="tab" role="tab"
+                                            aria-controls="account-info" aria-selected="false">
+                                            <i class="fa fa-user"></i>
+                                            Thông tin tài khoản
+                                        </button>
+                                        <button id="orders_btn" type="button" data-bs-target="#orders"
+                                            data-bs-toggle="tab" role="tab" aria-controls="orders"
+                                            aria-selected="false">
+                                            <i class="fa fa-cart-arrow-down"></i>
+                                            Lịch sử mua hàng
+                                        </button>
+                                        </button>
+                                        <a class="dangxuat" href="login.html"><i class="fa fa-sign-out"></i>Đăng
+                                            xuất</a>
+                                    </div>
+                                </div>
+                                <!-- My Account Tab Menu End -->
+
+                                <!-- My Account Tab Content Start -->
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="tab-content" id="myaccountContent">
+                                        <!-- Single Tab Content Start -->
+                                        <div class="tab-pane fade show active" id="account-info" role="tabpanel"
+                                            aria-labelledby="account-info_btn">
+                                            <div class="myaccount-content">
+                                                <h3>Thông tin tài khoản</h3>
+
+                                                <!-- Avatar Section -->
+                                                <div class="avatar-container">
+                                                    <img src="" alt="User Avatar" class="user-avatar" id="preview-avatar">
+                                                    
+                                                    <!-- Chọn ảnh và lưu nút sẽ được đặt dưới ảnh -->
+                                                    <div class="button-container">
+                                                        <label for="avatar-input" class="custom-file-label">Chọn ảnh</label>
+                                                        <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                                                        <button id="save-avatar-btn" style="display: none;">Lưu</button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Account Details Form Start -->
+                                                <div class="account-details-form">
+                                                    <form action="#" id="account-details-form">
+                                                        
+                                                        <div class="single-input-item">
+                                                            <label for="display-name" class="required">Tên đăng
+                                                                nhập</label>
+                                                            <input type="text" id="display-name"
+                                                                placeholder="Tên đăng nhập" readonly />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="email" class="required">Email</label>
+                                                            <input type="email" id="email" placeholder="Email" />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="phone" class="required">Số điện thoại</label>
+                                                            <input type="text" id="phone" placeholder="Số điện thoại" />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="address" class="required">Địa chỉ</label>
+                                                            <input type="text" id="address" placeholder="Địa chỉ" />
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <button class="btn" type="submit">Lưu</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <!-- Account Details Form End -->
+
+                                                <!-- Password Change Form Start -->
+                                                <fieldset>
+                                                    <legend>Đổi mật khẩu</legend>
+                                                    <form id="password-change-form">
+                                                        <div class="single-input-item">
+                                                            <label for="current-pwd" class="required">Mật khẩu hiện
+                                                                tại</label>
+                                                            <input type="password" id="current-pwd"
+                                                                placeholder="Mật khẩu hiện tại" required />
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="single-input-item">
+                                                                    <label for="new-pwd" class="required">Mật khẩu
+                                                                        mới</label>
+                                                                    <input type="password" id="new-pwd"
+                                                                        placeholder="Mật khẩu mới" required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="single-input-item">
+                                                                    <label for="confirm-pwd" class="required">Xác nhận
+                                                                        mật khẩu mới</label>
+                                                                    <input type="password" id="confirm-pwd"
+                                                                        placeholder="Xác nhận mật khẩu mới" required />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <button class="btn" type="submit">Lưu mật khẩu</button>
+                                                        </div>
+                                                    </form>
+                                                </fieldset>
+                                                <!-- Password Change Form End -->
+                                            </div>
+                                        </div>
+
+                                        <!-- Single Tab Content End -->
+                                        <!-- Single Tab Content Start -->
+                                        <div class="tab-pane fade" id="orders" role="tabpanel"
+                                            aria-labelledby="orders_btn">
+                                            <div class="myaccount-content">
+                                                <h3>Đơn hàng của bạn</h3>
+                                                <!-- Thêm phân trang và dữ liệu từ API vào bảng -->
+                                                <div class="myaccount-table table-responsive text-center" style="height: 280px; overflow-y: auto;">
+                                                    <table class="table table-bordered">
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                                <th>Đơn hàng</th>
+                                                                <th>Sản phẩm</th>
+                                                                <th>Ngày</th>
+                                                                <th>Trạng thái</th>
+                                                                <th>Tổng số</th>
+                                                                <th>Hành động</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="order-table-body">
+                                                            <!-- Dữ liệu sẽ được thêm vào đây từ API -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <!-- Phân trang -->
+                                                <div id="pagination" class="d-flex justify-content-end">
+                                                    <ul class="pagination">
+                                                        <li class="page-item" id="prev-page">
+                                                            <button class="page-link btn btn-success"
+                                                                type="button">Trước</button>
+                                                        </li>
+                                                        <li class="page-item" id="page-number">
+                                                            <span class="page-link"
+                                                                style="text-align: center;">1</span>
+                                                            <!-- Số trang hiện tại -->
+                                                             
+                                                        </li>
+                                                        <li class="page-item" id="next-page">
+                                                            <button class="page-link btn btn-success"
+                                                                type="button">Tiếp</button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- Single Tab Content End -->
+                                    </div>
+                                </div> <!-- My Account Tab Content End -->
+                            </div>
+                        </div> <!-- My Account Page End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- my account wrapper end -->
+    </main>
+    <!-- main wrapper end -->
+
+    <!-- Start Footer Area Wrapper -->
+    <footer class="footer-wrapper">
+        <!-- footer main area start -->
+        <div class="footer-widget-area mt-5">
+            <div class="container">
+                <div class="row mtn-4">
+                    <!-- footer widget item start -->
+                    <div class="col-xl-5 col-lg-3 col-md-6">
+                        <div class="widget-item mt-4">
+                            <h5 class="widget-title">Thông tin liên hệ</h5>
+                            <div class="widget-body">
+                                <ul class="location-wrap">
+                                    <li><i class="ion-ios-location-outline"></i>Minh Khai Ward, Bac Tu Liem District,
+                                        Hanoi City.</li>
+                                    <li><i class="ion-ios-email-outline"></i>Mail: <a
+                                            href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></li>
+                                    <li><i class="ion-ios-telephone-outline"></i>Phone: <a
+                                            href="%2b0025425456554.html">+0123456789</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer widget item end -->
+                    <div class="col-xl-3 col-lg-3 col-md-4"></div>
+                    <!-- footer widget item end -->
+                    <div class="col-xl-3 col-lg-3 col-md-4">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.4737884515107!2d105.73253187608918!3d21.053730980601838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345457e292d5bf%3A0x20ac91c94d74439a!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1733187950170!5m2!1svi!2s"
+                            width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <!-- footer widget item end -->
+                </div>
+            </div>
+        </div>
+        <!-- footer main area end -->
+
+
+    </footer>
+    <!-- End Footer Area Wrapper -->
+     
+
+    <!-- offcanvas mini cart start -->
+    <div class="offcanvas-minicart-wrapper">
+        <div class="minicart-inner">
+            <div class="offcanvas-overlay"></div>
+            <div class="minicart-inner-content">
+                <div class="minicart-close">
+                    <i class="ion-android-close"></i>
+                </div>
+                <h3 style="text-align: center; margin-bottom: 30px;">Giỏ hàng của bạn</h3>
+                <div class="minicart-content-box">
+                    <div class="minicart-item-wrapper">
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <div class="minicart-pricing-box">
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <div class="minicart-button">
+                        <a href="cart.html"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- offcanvas mini cart end -->
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+    <!--=======================Javascript============================-->
+    <!--=== All Vendor Js ===-->
+    <script src="assets/js/vendor.js"></script>
+    <!--=== All Plugins Js ===-->
+    <script src="assets/js/plugins.js"></script>
+    <!--=== Active Js ===-->
+    <script src="assets/js/active.js"></script>
+</body>
+
+
+</html>
+
+<script>
+    const token = localStorage.getItem('token'); // Lấy token đăng nhập
+    const userId = localStorage.getItem('userId');
+
+    // Biến lưu trạng thái của trang hiện tại
+    let currentPage = 0;
+    let totalPages = 1;
+
+    // Hàm gọi API
+    function fetchData(page) {
+        // Gọi API với trang hiện tại
+        fetch(`http://localhost:8888/api/shop/order/${userId}?page=${page}&size=1`, {
+            method: 'GET',
+            headers: {
+                'Authorization': token
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                renderTable(data.result.result); // Hiển thị dữ liệu lên bảng
+                totalPages = data.result.meta.pages; // Cập nhật tổng số trang
+                updatePagination(); // Cập nhật phân trang
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Hàm cập nhật phân trang
+    function renderTable(orders) {
+        const tableBody = document.getElementById("order-table-body");
+        tableBody.innerHTML = ''; // Xóa dữ liệu cũ trong bảng
+
+        orders.forEach(order => {
+            const row = document.createElement('tr');
+
+            // Tạo HTML cho cột sản phẩm, hiển thị danh sách sản phẩm trong mỗi đơn hàng
+            const productColumn = order.orderItems.map(item => {
+                return `
+            <div style="max-height: 200px; overflow-y: auto; padding: 5px; border: 1px solid #ddd; border-radius: 8px;">
+                <ul style="list-style: none; margin: 0; padding: 0;">
+                    <li style="display: flex; margin-bottom: 10px;">
+                        <div style="flex: 0 0 60px; margin-right: 10px;">
+                            <img src="http://localhost:8888/images/product/${item.image}" 
+                                 alt="${item.productName}" 
+                                 style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="margin: 0; font-size: 14px; font-weight: bold; color: #333;">
+                                ${item.productName}
+                            </h3>
+                            <p style="margin: 5px 0; font-size: 13px; color: #555;">
+                                <span>${item.quantity} × ${(item.price).toLocaleString()} VNĐ</span>
+                            </p>
+                            <p style="margin: 0; font-size: 12px; color: #666;">
+                                Màu sắc: ${item.color} | Size: ${item.size}
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            `;
+            }).join("");  // Nối tất cả các sản phẩm lại với nhau trong cột sản phẩm
+
+            // Tạo HTML cho các cột khác trong bảng
+            let statusHtml = "";
+            switch (order.status) {
+                case 'SHIPPED':
+                    statusHtml = '<div id="statusOrd" class="badge bg-warning text-dark">Đang ship</div>';
+                    break;
+                case 'PENDING':
+                    statusHtml = '<div id="statusOrd" class="badge bg-info text-dark">Chờ xử lý</div>';
+                    break;
+                case 'DELIVERED':
+                    statusHtml = '<div id="statusOrd" class="badge bg-success text-light">Đã giao</div>';
+                    break;
+                default:
+                    statusHtml = `<div id="statusOrd" class="badge bg-secondary text-light">${order.status}</div>`;
+            }
+            row.innerHTML = `
+            <td>${order.id}</td>
+            <td>${productColumn}</td> <!-- Cột sản phẩm -->
+            <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+            <td>${statusHtml}</td>
+            <td>${order.totalAmount.toLocaleString()} VNĐ</td>
+            <td><button class="btn btn-success" onclick="viewOrderDetails(${order.id})">Xem chi tiết</button></td>
+        `;
+
+            tableBody.appendChild(row);
+        });
+    }
+    function viewOrderDetails(orderId) {
+        // Chuyển hướng đến trang order_detail.html kèm theo ID đơn hàng
+        window.location.href = `order_detail.html?orderId=${orderId}`;
+    }
+
+    function updatePagination() {
+        const pageNumberElement = document.getElementById('page-number');
+        const prevButton = document.getElementById('prev-page').querySelector('button');
+        const nextButton = document.getElementById('next-page').querySelector('button');
+
+        // Cập nhật số trang hiện tại
+        pageNumberElement.querySelector('span').innerText = `${currentPage + 1}/${totalPages}`;
+
+        // Kiểm tra trạng thái của nút Previous
+        if (currentPage <= 0) {
+            prevButton.disabled = true;
+        } else {
+            prevButton.disabled = false;
+        }
+
+        // Kiểm tra trạng thái của nút Next
+        if (currentPage >= totalPages - 1) {
+            nextButton.disabled = true;
+        } else {
+            nextButton.disabled = false;
+        }
+    }
+
+    // Event listener cho nút Previous
+    document.getElementById('prev-page').querySelector('button').addEventListener('click', () => {
+        if (currentPage > 0) {
+            currentPage--;
+            fetchData(currentPage);
+        }
+    });
+
+    // Event listener cho nút Next
+    document.getElementById('next-page').querySelector('button').addEventListener('click', () => {
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            fetchData(currentPage);
+        }
+    });
+
+    // Lần đầu tiên gọi API với page=0 khi trang tải
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchData(currentPage);
+    });
+
+
+    // Bắt đầu xử lý mini card
+    function renderMiniCart(cartItems, summary) {
+        const cartWrapper = document.querySelector(".minicart-item-wrapper ul");
+        const pricingBox = document.querySelector(".minicart-pricing-box ul");
+
+        // Làm rỗng nội dung cũ
+        pricingBox.innerHTML = "";
+        cartWrapper.innerHTML = "";
+
+
+        // Render từng sản phẩm
+        cartItems.forEach(item => {
+            const product = item.product;
+            const quantity = item.quantity;
+            const cartItemHTML = `
+            <li class="minicart-item">
+                <div class="minicart-thumb">
+                    <a href="product-details.html?id=${product.productId}">
+                        <img src="http://localhost:8888/images/product/${product.images[0]}" alt="${product.productName}">
+                    </a>
+                </div>
+                <div class="minicart-content">
+                    <h3 class="product-name" style="padding: 0px;">
+                        <a href="product-details.html?id=${product.productId}">${product.productName}</a>
+                    </h3>
+                    <p>
+                        <span class="cart-quantity">${quantity} <strong>&times;</strong></span>
+                        <span class="cart-price">${(product.price).toLocaleString()} VNĐ</span>
+                    </p>
+                    <p>
+                        <span class="product-name">Màu sắc: ${product.color}</span><br>
+                        <span class="product-name">Kích thước: ${product.size}</span>
+                    </p>
+                </div>
+                <button class="minicart-remove" data-variant-id="${product.variantId}">
+                    <i class="ion-android-close"></i>
+                </button>
+            </li>
+        `;
+            cartWrapper.innerHTML += cartItemHTML;
+        });
+        document.getElementById('cart-quantity').innerText = summary.totalQuantity;
+        // Render tổng giá trị
+        pricingBox.innerHTML += `
+        <li><span>Tổng giá trước thuế</span><span><strong>${summary.totalPrice.toLocaleString()} VNĐ</strong></span></li>
+        <li><span>VAT (10%)</span><span><strong>${(summary.totalPrice * 0.1).toLocaleString()} VNĐ</strong></span></li>
+        <li class="total"><span>Tổng giá sau thuế</span><span><strong>${(summary.totalPrice * 1.1).toLocaleString()} VNĐ</strong></span></li>
+    `;
+    }
+
+    // Hàm lấy dữ liệu sản phẩm trong giỏ hàng
+    async function fetchCartItems(userId) {
+        try {
+            const response = await fetch(`http://localhost:8888/api/shop/cart?userId=${userId}`, {
+                method: "GET",
+                headers: {
+                    "Authorization": token,
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await response.json();
+            if (data.code === 200) {
+                return data.result;
+            } else {
+                throw new Error(data.message || "Failed to fetch cart items.");
+            }
+        } catch (error) {
+            console.error("Error fetching cart items:", error);
+            return [];
+        }
+    }
+
+    // Hàm lấy dữ liệu tổng hợp giỏ hàng (số lượng và giá trị)
+    async function fetchCartSummary(userId) {
+        try {
+            const [quantityRes, priceRes] = await Promise.all([
+                fetch(`http://localhost:8888/api/shop/cart/quantity?userId=${userId}`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": token,
+                        "Content-Type": "application/json"
+                    }
+                }).then(res => res.json()),
+                fetch(`http://localhost:8888/api/shop/cart/sumprice?userId=${userId}`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": token,
+                        "Content-Type": "application/json"
+                    }
+                }).then(res => res.json())
+            ]);
+            return {
+                totalQuantity: quantityRes.result,
+                totalPrice: priceRes.result
+            };
+        } catch (error) {
+            console.error("Error fetching cart summary:", error);
+            return { totalQuantity: 0, totalPrice: 0 };
+        }
+    }
+
+    // Khi nhấn vào nút giỏ hàng, gọi API và hiển thị giỏ hàng mini (nếu chưa gọi trước đó)
+    document.querySelector(".minicart-btn").addEventListener("click", async (event) => {
+        event.preventDefault();  // Ngừng hành động mặc định của liên kết
+        const minicartWrapper = document.querySelector(".offcanvas-minicart-wrapper");  // Giỏ hàng mini
+        const cartItems = await fetchCartItems(userId);
+        if (cartItems.length === 0) {
+            const pricingBox = document.querySelector(".minicart-pricing-box ul");
+            pricingBox.innerHTML = '<div style="text-align: center; margin: 20px 0;"> <i class="ion-bag" style="font-size: 50px; color: #ccc;"></i> <p style="font-size: 16px; color: #666; margin-top: 10px;"> Giỏ hàng của bạn đang trống </p> </div>';
+
+        } else {
+            const cartSummary = await fetchCartSummary(userId);
+            renderMiniCart(cartItems, cartSummary);
+        }
+    });
+
+    document.querySelector(".dangxuat").addEventListener("click", async (event) => {
+        localStorage.clear();
+    })
+
+    // Xử lý khi nhấn nút xóa sản phẩm khỏi giỏ hàng
+    document.addEventListener("click", async (event) => {
+        if (event.target.classList.contains("minicart-remove")) {
+            const productElement = event.target.closest(".minicart-item");
+            const variantId = event.target.getAttribute("data-variant-id");
+
+            // Hiển thị hộp thoại xác nhận trước khi xóa
+            const isConfirmed = confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?");
+            if (isConfirmed) {
+                try {
+                    // Gửi yêu cầu xóa sản phẩm
+                    const response = await fetch(`http://localhost:8888/api/shop/cart/variant/${variantId}?userId=${userId}`, {
+                        method: "DELETE",
+                        headers: {
+                            "Authorization": token,
+                            "Content-Type": "application/json"
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Xóa sản phẩm khỏi giao diện
+                        productElement.remove();
+                        reloadMiniCart(userId);
+                    } else {
+                        throw new Error("Failed to remove item");
+                    }
+                } catch (error) {
+                    console.error("Error removing cart item:", error);
+                }
+            }
+        }
+    });
+
+    // Hàm reload lại giỏ hàng mini sau khi xóa sản phẩm
+    async function reloadMiniCart(userId) {
+        try {
+            const cartItems = await fetchCartItems(userId);
+            if (cartItems.length === 0) {
+                const pricingBox = document.querySelector(".minicart-pricing-box ul");
+                pricingBox.innerHTML = '<div style="text-align: center; margin: 20px 0;"> <i class="ion-bag" style="font-size: 50px; color: #ccc;"></i> <p style="font-size: 16px; color: #666; margin-top: 10px;"> Giỏ hàng của bạn đang trống </p> </div>';
+
+            } else {
+                const cartSummary = await fetchCartSummary(userId);
+                renderMiniCart(cartItems, cartSummary);
+            }
+        } catch (error) {
+            console.error("Error reloading mini cart:", error);
+        }
+    }
+    // Kết thúc xử lý mini card
+
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        const userId = localStorage.getItem("userId"); // Lấy ID từ localStorage
+        const token = localStorage.getItem("token"); // Lấy token từ localStorage
+
+        try {
+            const response = await fetch(`http://localhost:8888/api/shop/cart/quantity?userId=${userId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error fetching cart quantity: ${response.statusText}`);
+            }
+            const data = await response.json();
+            const numberOfProduct = data.result;
+
+            // Hiển thị số lượng sản phẩm trong giao diện
+            document.getElementById('cart-quantity').innerText = numberOfProduct;
+        } catch (error) {
+            console.error('Error fetching cart quantity:', error);
+        }
+        // API URLs
+        const UserUrl = `http://localhost:8888/api/authentication/user/${userId}`;
+        const updateUserUrl = `http://localhost:8888/api/authentication/user/update/${userId}`;
+        const updateUserPhotoUrl = `http://localhost:8888/api/authentication/user/photo/${userId}`;
+        const updatePasswordUrl = `http://localhost:8888/api/authentication/user/change-password/${userId}`;
+
+        // Fetch user data
+        try {
+            const response = await fetch(UserUrl, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            });
+            const data = await response.json();
+            const user = data.result;
+
+            const avatarSmall = user.avatar
+                ? `http://localhost:8888/images/avatar/${user.avatar}`
+                : "assets/img/about/avatar.jpg";
+
+            // Gán URL của avatar vào thẻ <img> trong .user-thumbnail
+            const userImage = document.querySelector(".user-thumbnail .user-image");
+            if (userImage) {
+                userImage.src = avatarSmall;
+            }
+
+            // Điền dữ liệu lên giao diện
+            document.getElementById("email").value = user.email || "";
+            document.getElementById("phone").value = user.phone || "";
+            document.getElementById("address").value = user.address || "";
+            document.getElementById("display-name").value = user.username || ""; // Display name không chỉnh sửa
+            const avatarUrl = user.avatar
+                ? `http://localhost:8888/images/avatar/${user.avatar}`
+                : "assets/img/default-avatar.jpg";
+            document.querySelector(".user-avatar").src = avatarUrl;
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
+
+        // Select elements
+        const avatarInput = document.getElementById("avatar-input");
+        const saveAvatarBtn = document.getElementById("save-avatar-btn");
+        const previewAvatar = document.getElementById("preview-avatar");
+        const fileLabel = document.querySelector(".custom-file-label");
+
+        // Hiển thị ảnh đã chọn trước và cập nhật label khi có tệp
+        avatarInput.addEventListener("change", function () {
+            const file = avatarInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                // Đọc file và hiển thị preview
+                reader.onload = function (event) {
+                    previewAvatar.src = event.target.result; // Gán đường dẫn ảnh đã chọn
+                };
+
+                reader.readAsDataURL(file); // Đọc file dưới dạng URL
+                saveAvatarBtn.style.display = "inline-block"; // Hiển thị nút Lưu
+
+                // Cập nhật label cho tệp đã chọn
+            }
+        });
+
+        // Xử lý sự kiện khi ấn nút Lưu
+        saveAvatarBtn.addEventListener("click", async function () {
+            const file = avatarInput.files[0];
+            if (!file) {
+                Swal.fire({
+                    title: "Lỗi!",
+                    text: "Vui lòng chọn một ảnh trước khi lưu.",
+                    icon: "warning",
+                    confirmButtonColor: "#3085d6",
+                });
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("avatar", file);
+
+            try {
+                const response = await fetch(updateUserPhotoUrl, {
+                    method: "PUT",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (data.code === 200) {
+                    Swal.fire({
+                        title: "Thành công!",
+                        text: "Avatar đã được cập nhật thành công.",
+                        icon: "success",
+                        confirmButtonColor: "#3085d6",
+                    }).then(() => {
+                        window.location.reload();
+                    });
+
+                    saveAvatarBtn.style.display = "none"; // Ẩn nút Lưu sau khi cập nhật
+                } else {
+                    Swal.fire({
+                        title: "Thất bại!",
+                        text: "Không thể cập nhật avatar. Vui lòng thử lại.",
+                        icon: "error",
+                        confirmButtonColor: "#d33",
+                    });
+                }
+            } catch (error) {
+                console.error("Error updating avatar:", error);
+                Swal.fire({
+                    title: "Lỗi hệ thống!",
+                    text: "Đã xảy ra lỗi. Vui lòng thử lại sau.",
+                    icon: "error",
+                    confirmButtonColor: "#d33",
+                });
+            }
+        });
+
+
+        // Handle account details update
+        document
+            .getElementById("account-details-form")
+            .addEventListener("submit", async function (event) {
+                event.preventDefault(); // Ngăn chặn reload trang mặc định
+
+                const updatedUser = {
+                    
+                    email: document.getElementById("email").value.trim(),
+                    phone: document.getElementById("phone").value.trim(),
+                    address: document.getElementById("address").value.trim(),
+                };
+
+                try {
+                    const response = await fetch(updateUserUrl, {
+                        method: "PUT",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(updatedUser),
+                    });
+                    const data = await response.json();
+
+                    if (data.code === 200) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thành công',
+                            text: 'Bạn đã cập nhật thông tin thành công!',
+                            confirmButtonColor: '#3085d6',
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Thất bại',
+                            text: 'Bạn đã cập nhật thông tin thất bại!',
+                            confirmButtonColor: '#3085d6',
+                        })
+                    }
+                } catch (error) {
+                    console.error("Error updating account details:", error);
+                }
+            });
+
+        // Handle password update
+        document
+            .getElementById("password-change-form")
+            .addEventListener("submit", async function (event) {
+                event.preventDefault(); // Ngăn chặn reload trang mặc định
+
+                const currentPwd = document.getElementById("current-pwd").value.trim();
+                const newPwd = document.getElementById("new-pwd").value.trim();
+                const confirmPwd = document.getElementById("confirm-pwd").value.trim();
+
+                if (!currentPwd || !newPwd || !confirmPwd) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Thất bại',
+                        text: 'Bạn phải nhập đủ thông tin!',
+                        confirmButtonColor: '#3085d6',
+                    })
+                    return;
+                }
+
+                if (newPwd !== confirmPwd) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Thất bại',
+                        text: 'Mật khẩu mới không trùng khớp!',
+                        confirmButtonColor: '#3085d6',
+                    })
+                    return;
+                }
+
+                const passwordData = {
+                    oldPassword: currentPwd,
+                    newPassword: newPwd,
+                };
+
+                try {
+                    const response = await fetch(updatePasswordUrl, {
+                        method: "PUT",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(passwordData),
+                    });
+
+                    console.log("e", response)
+
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Thành công',
+                            text: 'Mật khẩu đã được đổi!',
+                            confirmButtonColor: '#3085d6',
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Thất bại',
+                            text: 'Mật khẩu đổi không thành công!',
+                            confirmButtonColor: '#3085d6',
+                        })
+                    }
+                } catch (error) {
+                    console.error("Error updating password:", error);
+                }
+            });
+    });
+
+    document.getElementById("searchBtn").addEventListener("click", async function (e) {
+        e.preventDefault(); 
+    
+        const query = document.getElementById("searchInput").value.trim();
+        if (!query) {
+            const resultsContainer = document.getElementById("searchResults");
+            resultsContainer.innerHTML = "<p>Nhập thông tin cần tìm kiếm.</p>";
+            resultsContainer.style.display = "block"; 
+            return;
+        }
+    
+        console.log("Search query:", query); 
+    
+        try {
+            // Gửi yêu cầu đến API backend
+            const response = await fetch(`http://localhost:8888/api/shop/product/name?search=productName:like:${encodeURIComponent(query)}&page=0&size=10`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+    
+            console.log("Response status:", response.status); 
+    
+            if (!response.ok) {
+                throw new Error(`Failed to fetch data from API: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            console.log("Response data:", data); 
+    
+            const resultsContainer = document.getElementById("searchResults");
+            resultsContainer.innerHTML = ""; 
+    
+            if (data.result.result && data.result.result.length > 0) {
+                data.result.result.forEach(item => {
+                    const resultItem = document.createElement("div");
+                    resultItem.classList.add("result-item");
+            
+                    const link = document.createElement("a");
+                    link.href = `product-details.html?id=${item.productId}`;
+                    link.classList.add("result-link");
+            
+                    link.innerHTML = `
+                        <div class="result-thumbnail">
+                            <img src="http://localhost:8888/images/product/${item.images?.[0] || 'default-image.jpg'}" alt="${item.productName}">
+                        </div>
+                        <div class="result-details">
+                            <span class="product-name">${item.productName}</span>
+                            <span class="product-price">Giá: ${(item.price * (100 - item.discount) / 100).toLocaleString()} VND</span>
+                        </div>
+                    `;
+            
+                    resultItem.appendChild(link); 
+                    resultsContainer.appendChild(resultItem);  
+                });
+                resultsContainer.style.display = "block";
+            } else {
+                resultsContainer.innerHTML = "<p>Không có sản phẩm nào được tìm thấy.</p>";
+                resultsContainer.style.display = "block";
+            }
+                
+        } catch (error) {
+            console.error("Error:", error.message); 
+            const resultsContainer = document.getElementById("searchResults");
+            resultsContainer.innerHTML = "<p>Lỗi tìm kiếm.</p>";
+            resultsContainer.style.display = "block"; 
+        }
+    });
+
+    document.addEventListener("click", function (event) {
+        const resultsContainer = document.getElementById("searchResults");
+        const searchInput = document.getElementById("searchInput");
+        const searchBtn = document.getElementById("searchBtn");
+
+        if (!resultsContainer.contains(event.target) && event.target !== searchInput && event.target !== searchBtn) {
+            resultsContainer.style.display = "none"; 
+        }
+    });
+
+</script>
+
+<style>
+    .user-thumbnail .user-image {
+        width: 30px;
+        height: 30px;
+        border-radius: 30%;
+        object-fit: cover;
+        border: 1px solid #ddd;
+    }
+
+    .user-thumbnail a {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .avatar-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .user-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    #avatar-input {
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    /* cart */
+    .minicart-inner-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        /* Chiều cao toàn phần của nội dung */
+    }
+
+    .minicart-item-wrapper {
+        flex-grow: 1;
+        /* Phần danh sách sản phẩm mở rộng để chiếm không gian còn lại */
+        overflow-y: auto;
+        /* Kích hoạt cuộn dọc */
+    }
+
+    /* footer */
+    .footer-wrapper {
+        padding: 20px 0;
+    }
+
+    .footer-widget-area {
+        background-color: #f9f9f9;
+    }
+
+    .widget-item {
+        margin-bottom: 20px;
+    }
+
+    .location-wrap li {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    /* Thay đổi bố cục và kích thước cho màn hình nhỏ hơn */
+    @media (max-width: 992px) {
+
+        .col-xl-5,
+        .col-lg-3,
+        .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .col-xl-3,
+        .col-lg-3,
+        .col-md-4 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            /* Căn giữa nội dung */
+        }
+
+        iframe {
+            width: 100%;
+            height: 150px;
+            /* Điều chỉnh chiều cao iframe */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .location-wrap li {
+            font-size: 14px;
+            /* Thu nhỏ font chữ */
+        }
+
+        .col-xl-5,
+        .col-lg-3,
+        .col-md-6,
+        .col-xl-3,
+        .col-lg-3,
+        .col-md-4 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        iframe {
+            height: 120px;
+            /* Điều chỉnh thêm cho màn hình nhỏ */
+        }
+    }
+    .search-results {
+        display: none;
+        position: absolute;
+        top: 73%;
+        left: 28%;
+        width: 500px;
+        border: 1px solid #ccc;
+        max-height: 300px;
+        overflow-y: auto;
+        background-color: white;
+        z-index: 9999;
+    }
+    
+    .result-item {
+        display: flex;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .result-link {
+        display: flex;
+        width: 100%;
+        text-decoration: none;  
+        color: #000;
+    }
+    
+    .result-thumbnail {
+        margin-right: 10px;
+    }
+    
+    .result-thumbnail img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .result-details {
+        display: flex;
+        flex-direction: column;  
+        justify-content: center;  
+    }
+    
+    .result-item + .result-item {
+        border-top: 1px solid #ccc;
+    }
+    
+    .result-item::after {
+        content: "";
+    }
+
+    #save-avatar-btn {
+        padding: 3px 3px;
+        background-color: #3085d6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .custom-file-label{
+        padding: 3px 3px;
+        background-color: #3085d6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #save-avatar-btn:hover{
+        background-color: #2874c9;
+    }
+</style>

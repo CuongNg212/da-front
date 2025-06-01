@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content name="description">
+  <meta content name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo-haui-size.png" rel="icon">
+  <link href="assets/img/logo-haui-size.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/styleAdmin.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Thay đổi tên cửa hàng -->
+      <!-- <a href="index.html" class="logo d-flex align-items-center"> -->
+        <img src="Screenshot 2024-10-17 142441.png" alt="Logo cửa hàng">
+        <!-- <span class="d-none d-lg-block">Ananas</span> -->
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Tìm kiếm sản phẩm, đơn hàng..." title="Nhập từ khóa tìm kiếm">
+        <button type="submit" title="Tìm kiếm"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <!-- Thông báo Đơn hàng -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">5</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              Bạn có 5 thông báo mới
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li class="notification-item">
+              <i class="bi bi-cart text-info"></i>
+              <div>
+                <h4>Đơn hàng mới</h4>
+                <p>Đơn hàng #12345 vừa được đặt</p>
+                <p>30 phút trước</p>
+              </div>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li class="notification-item">
+              <i class="bi bi-truck text-warning"></i>
+              <div>
+                <h4>Đơn hàng đang giao</h4>
+                <p>Đơn hàng #54321 đang trên đường giao</p>
+                <p>1 giờ trước</p>
+              </div>
+            </li>
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <!-- Tin nhắn Khách hàng -->
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number" id="messageCount-2"></span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages" id="messageList">
+            <li class="dropdown-header">
+              Bạn có <span id="messageCount">0</span> tin nhắn mới
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            
+            <!-- Tin nhắn sẽ được load vào đây bằng JavaScript -->
+            
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+          
+          <!-- Modal hiển thị chi tiết tin nhắn -->
+          <div id="messageModal" class="message-modal">
+            <div class="message-modal-content">
+              <span class="close-btn">&times;</span>
+              <img id="avatarMes" style="width: 25px;" src="assets/img/apple-touch-icon.png" alt=""><span id="usernameMess"> User</span>
+              <ul id="messageDetails"></ul>
+              <!-- Ô nhập tin nhắn và nút gửi -->
+              <div class="send-message-container">
+                <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." />
+                <button id="sendMessageBtn">Gửi</button>
+              </div>
+            </div>
+          </div>
+
+        </li><!-- End Messages Nav -->
+
+        <!-- Thông tin Tài khoản -->
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img id="avtView" src="" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Quản lý</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Quản lý Cửa hàng</h6>
+              <span>Quản lý hệ thống</span>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>Thông tin cá nhân</span>
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="login.html">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Đăng xuất</span>
+              </a>
+            </li>
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="index(2).html">
+          <i class="bi bi-grid"></i>
+          <span>Trang chủ</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <!-- Quản lý Sản phẩm -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#products-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-box-seam"></i><span>Quản Lý Sản Phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="products-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-shoe.html"><i class="bi bi-plus-circle"></i><span>Sản Phẩm</span></a></li>
+          <li><a href="list-shoes.html"><i class="bi bi-list-ul"></i><span>Danh Mục Sản Phẩm</span></a></li>
+          <li><a href="inventory-report.html"><i class="bi bi-box"></i><span>Báo cáo Tồn kho</span></a></li>
+          <!-- <li><a href="edit-shoe.html"><i class="bi bi-pencil-square"></i><span>Cập nhật Giày</span></a></li> -->
+          <!-- <li><a href="shoe-inventory.html"><i class="bi bi-box"></i><span>Quản lý Tồn kho</span></a></li> -->
+        </ul>
+      </li><!-- End Products Nav -->
+
+      <!-- Quản lý Đơn hàng -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cart"></i><span>Quản lý Đơn hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="orders-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="new-order.html"><i class="bi bi-plus-square"></i><span>Theo dõi đơn hàng</span></a></li>
+
+        </ul>
+      </li><!-- End Orders Nav -->
+
+      <!-- Quản lý Khách hàng -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#customers-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Quản lý Khách hàng</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="customers-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-customer.html"><i class="bi bi-person-plus"></i><span>Quản lý khách hàng</span></a></li>
+        </ul>
+      </li><!-- End Customers Nav -->
+
+      <!-- Quản lý Báo cáo -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#sales-report-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Báo cáo Doanh thu</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="sales-report-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="daily-sales.html"><i class="bi bi-calendar-event"></i><span>Doanh thu</span></a></li>
+          <li><a href="customer-history.html"><i class="bi bi-card-list"></i><span>Lịch sử giao dịch</span></a></li>
+        </ul>
+      </li><!-- End Sales Report Nav -->
+
+      <!-- Quản lý Khuyến mãi -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#voucher-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gift"></i><span>Quản lý khuyến mãi</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="voucher-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li><a href="add-promo.html"><i class="bi bi-gift"></i><span>Quản lý Khuyến mãi</span></a></li>
+        </ul>
+      </li><!-- End Promo Nav -->
+
+
+    </ul>
+  </aside><!-- End Sidebar -->
+  
+  <main id="main" class="main">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Quản lý Khách Hàng</h1>
+        <!-- Bảng hiển thị danh sách khách hàng -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Danh sách khách hàng</h5>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Tên khách hàng</th>
+                            <th>Email</th>
+                            <th>Dịa chỉ</th>
+                            <th>Avatar</th>
+                            <th>Điện thoại</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+  </main><!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Cuong</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://bootstrapmade.com/">Cuong</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const receiverId = localStorage.getItem("userId");
+    const token = localStorage.getItem("token");
+    let currentSenderId = null;
+  
+    const messageList = document.getElementById("messageList");
+    const messageCount = document.getElementById("messageCount");
+    const messageCount_2 = document.getElementById("messageCount-2");
+    const messageModal = document.getElementById("messageModal");
+    const messageDetails = document.getElementById("messageDetails");
+    const messageInput = document.getElementById("messageInput");
+    const sendMessageBtn = document.getElementById("sendMessageBtn");
+  
+    async function fetchMessages() {
+      try {
+          if (!token) {
+              console.error("Lỗi: Không có token xác thực.");
+              return;
+          }
+  
+          const response = await fetch(`http://localhost:8888/api/shop/message/latest?receiverId=${receiverId}`, {
+              headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+              },
+          });
+  
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+  
+          const data = await response.json();
+          const messages = data.result;
+  
+          console.log("Messages:", messages);
+  
+          // Cập nhật số lượng tin nhắn
+          messageCount.innerText = messages.length;
+          messageCount_2.innerText = messages.length;
+  
+          // Xóa các tin nhắn cũ
+          messageList.querySelectorAll(".message-item").forEach((item) => item.remove());
+  
+          // Lặp qua từng tin nhắn
+          for (const message of messages) {
+              try {
+                  const userResponse = await fetch(`http://localhost:8888/api/authentication/user/${message.senderId}`, {
+                      method: "GET",
+                      headers: {
+                          Authorization: `Bearer ${token}`, // Thêm Bearer Token vào request
+                          "Content-Type": "application/json",
+                      },
+                  });
+  
+                  if (!userResponse.ok) {
+                      throw new Error(`HTTP error! Status: ${userResponse.status}`);
+                  }
+  
+                  const userData = await userResponse.json();
+                  const user = userData.result;
+  
+                  // Cập nhật avatar và username cho modal
+                  const avatarMesElement = document.querySelector("#avatarMes");
+                  const usernameMesElement = document.querySelector("#usernameMess");
+  
+                  if (avatarMesElement) {
+                      avatarMesElement.src = user.avatar
+                          ? `http://localhost:8888/images/avatar/${user.avatar}`
+                          : "assets/img/about/avatar.jpg";
+                  }
+  
+                  if (usernameMesElement) {
+                      usernameMesElement.innerText = user.username || "Người dùng";
+                  }
+  
+                  const avt = user.avatar
+                      ? `http://localhost:8888/images/avatar/${user.avatar}`
+                      : "assets/img/messages-1.jpg";
+  
+                  const messageItem = document.createElement("li");
+                  messageItem.classList.add("message-item");
+                  messageItem.dataset.senderId = message.senderId;
+  
+                  messageItem.innerHTML = `
+                      <a href="#">
+                          <img src="${avt}" alt class="rounded-circle">
+                          <div>
+                              <h4>${message.senderId === receiverId ? "Bạn" : message.senderName}</h4>
+                              <p>${message.message}</p>
+                              <p>${formatTimeAgo2(message.createdAt)}</p>
+                          </div>
+                      </a>
+                  `;
+  
+                  // Thêm vào danh sách tin nhắn
+                  messageList.insertBefore(messageItem, messageList.querySelector(".dropdown-footer"));
+  
+                  // Thêm sự kiện click để lấy tin nhắn của người gửi
+                  messageItem.addEventListener("click", () => fetchMessagesFromSender(message.senderId));
+              } catch (innerError) {
+                  console.error("Lỗi khi lấy thông tin người dùng:", innerError);
+              }
+          }
+      } catch (error) {
+          console.error("Lỗi khi lấy danh sách tin nhắn:", error);
+      }
+    }
+  
+  
+  
+  async function fetchMessagesFromSender(senderId) {
+    try {
+        if (!token) {
+            console.error("Lỗi: Không có token xác thực.");
+            return;
+        }
+
+        // Lấy tin nhắn gửi đi
+        const responseSent = await fetch(
+            `http://localhost:8888/api/shop/message/both?senderId=${receiverId}&receiverId=${senderId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        if (!responseSent.ok) {
+            throw new Error(`HTTP error! Status: ${responseSent.status}`);
+        }
+
+        const sentMessages = await responseSent.json();
+
+        // Lấy tin nhắn nhận vào
+        const responseReceived = await fetch(
+            `http://localhost:8888/api/shop/message/both2?receiverId=${receiverId}&senderId=${senderId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        if (!responseReceived.ok) {
+            throw new Error(`HTTP error! Status: ${responseReceived.status}`);
+        }
+
+        const receivedMessages = await responseReceived.json();
+
+        // Kết hợp tin nhắn gửi và nhận
+        const messages = [
+            ...sentMessages.result.map((msg) => ({ ...msg, type: "sent" })),
+            ...receivedMessages.result.map((msg) => ({ ...msg, type: "received" })),
+        ];
+
+        // Sắp xếp theo thời gian (cũ đến mới)
+        messages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
+        // Hiển thị tin nhắn
+        currentSenderId = senderId;
+        messageDetails.innerHTML = messages
+            .map((msg) => {
+                const messageClass = msg.type === "sent" ? "sender-message" : "receiver-message";
+                return `
+                    <li class="${messageClass}">
+                        <div class="message-content">${msg.message}</div>
+                        <small>${formatTimeAgo(msg.createdAt)}</small>
+                    </li>`;
+            })
+            .join("");
+
+        // Đảm bảo cuộn đến cuối modal khi mở
+        setTimeout(() => {
+            const lastMessage = messageDetails.lastElementChild;
+            if (lastMessage) {
+                lastMessage.scrollIntoView({ behavior: "smooth", block: "end" });
+            }
+        }, 100); // Đợi một chút để nội dung được render trước khi cuộn xuống
+
+        openModal();
+    } catch (error) {
+        console.error("Lỗi khi lấy tin nhắn chi tiết:", error);
+    }
+}
+
+    
+    function openModal() {
+      messageModal.style.display = "block";
+      // Đảm bảo cuộn đến cuối modal khi mở
+      setTimeout(() => {
+        const lastMessage = messageDetails.lastElementChild;
+        if (lastMessage) {
+          lastMessage.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+      }, 100); // Đợi một chút để nội dung được render trước khi cuộn xuống
+    }
+    
+  
+    async function sendMessage() {
+      const messageContent = messageInput.value.trim();
+      if (!messageContent || !currentSenderId) return;
+  
+      const messageData = {
+        senderId: receiverId,
+        receiverId: currentSenderId,
+        message: messageContent,
+      };
+  
+      try {
+        const response = await fetch("http://localhost:8888/api/shop/message", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(messageData),
+        });
+  
+        if (response.ok) {
+          const newMessage = await response.json();
+          messageDetails.insertAdjacentHTML(
+            "beforeend",
+            `<li class="receiver-message">
+              <div class="message-content">${newMessage.message}</div>
+              <small>${formatTimeAgo(newMessage.createdAt)}</small>
+            </li>`
+          );
+          messageInput.value = "";
+  
+          // Sau khi gửi tin nhắn, tái tải lại danh sách tin nhắn
+          fetchMessagesFromSender(currentSenderId); // Tải lại tin nhắn từ senderId hiện tại
+        }
+      } catch (error) {
+        console.error("Lỗi khi gửi tin nhắn:", error);
+      }
+    }
+
+    async function fetchAvatar() {
+      try {
+          const userId = localStorage.getItem("userId");
+  
+          if (!userId) {
+              console.error("Lỗi: Không tìm thấy userId trong localStorage.");
+              return;
+          }
+  
+          if (!token) {
+              console.error("Lỗi: Không có token xác thực.");
+              return;
+          }
+  
+          // Gửi yêu cầu API với Bearer Token
+          const response = await fetch(`http://localhost:8888/api/authentication/user/${userId}`, {
+              headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+              },
+          });
+  
+          // Kiểm tra trạng thái phản hồi
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+  
+          // Phân tích dữ liệu JSON
+          const data = await response.json();
+          const avt = data?.result?.result; // Dùng optional chaining để đảm bảo tính an toàn
+  
+          console.log("Avatar Data:", avt);
+  
+          // Lấy phần tử ảnh từ DOM
+          const avtE = document.querySelector("#avtView");
+  
+          if (avtE) {
+              // Kiểm tra avatar có tồn tại không
+              avtE.src = avt?.avatar
+                  ? `http://localhost:8888/images/avatar/${avt.avatar}`
+                  : "assets/img/default-avatar.jpg"; // Hình mặc định nếu không có avatar
+          } else {
+              console.warn("Element with ID 'avtView' not found.");
+          }
+      } catch (error) {
+          console.error("Lỗi khi lấy avatar:", error);
+      }
+  }
+  
+  
+    function formatTimeAgo(dateString) {
+      const date = new Date(dateString);
+      const now = new Date();
+      const diff = Math.floor((now - date) / 1000);
+  
+      if (diff < 60) return `${diff} giây trước`;
+      if (diff < 3600) return `${Math.floor(diff / 60)} phút trước`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)} giờ trước`;
+      return `${Math.floor(diff / 86400)} ngày trước`;
+    }
+  
+    function formatTimeAgo2(dateString) {
+      const date = new Date(dateString); // JavaScript hiểu tốt định dạng ISO 8601
+      date.setHours(date.getHours() + 7); // Cộng thêm 7 giờ để điều chỉnh sang UTC+7
+      const now = new Date();
+      const diff = Math.floor((now - date) / 1000); // Hiệu số thời gian tính bằng giây
+  
+      if (diff < 60) {
+        return `${diff} giây trước`;
+      }
+  
+      if (diff < 3600) {
+        const minutes = Math.round(diff / 60); // Làm tròn phút
+        return `${minutes} phút trước`;
+      }
+  
+      if (diff < 86400) {
+        const hours = Math.round(diff / 3600); // Làm tròn giờ
+        return `${hours} giờ trước`;
+      }
+  
+      return `${Math.floor(diff / 86400)} ngày trước`; // Nếu lớn hơn 1 ngày
+    }
+  
+    function openModal() {
+      messageModal.style.display = "block";
+    }
+  
+    function closeModal() {
+      messageModal.style.display = "none";
+    }
+  
+    document.querySelector(".close-btn").addEventListener("click", closeModal);
+    sendMessageBtn.addEventListener("click", sendMessage);
+  
+    fetchMessages();
+    fetchAvatar();
+  });
+  
+
+  // Hàm lấy token từ localStorage
+ function getToken() {
+   return localStorage.getItem('token'); // "token" là tên khóa lưu trữ token
+ }
+ 
+ // Hàm gọi API để lấy danh sách người dùng
+ async function fetchUsers() {
+   try {
+     const token = getToken();
+ 
+     if (!token) {
+       alert('Bạn chưa đăng nhập. Vui lòng đăng nhập để tiếp tục.');
+       return;
+     }
+ 
+     const response = await fetch('http://localhost:8888/api/authentication/user/all', {
+       method: 'GET',
+       headers: {
+         'Content-Type': 'application/json',
+         'Authorization': `Bearer ${token}` // Gửi token trong header
+       }
+     });
+ 
+     if (!response.ok) {
+       if (response.status === 401) {
+         alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
+       } else {
+         alert(`Lỗi khi tải danh sách người dùng: ${response.statusText}`);
+       }
+       throw new Error(`HTTP error! status: ${response.status}`);
+     }
+ 
+     // Đọc dữ liệu từ API
+     const responseData = await response.json();
+     console.log('Dữ liệu từ API:', responseData);
+ 
+     if (!responseData.result || !Array.isArray(responseData.result)) {
+       console.error('API trả về dữ liệu không đúng:', responseData);
+       alert('Lỗi: API không trả về danh sách người dùng hợp lệ.');
+       return;
+     }
+     
+     
+     const users = responseData.result;
+     console.log('Danh sách người dùng:', users);
+     
+     if (!Array.isArray(users)) {
+       console.error('Dữ liệu result không phải là mảng:', users);
+       alert('Lỗi: API không trả về danh sách người dùng hợp lệ.');
+       return;
+     }
+ 
+     // Hiển thị người dùng
+     const tableBody = document.getElementById('userTableBody');
+     tableBody.innerHTML = ''; // Xóa dữ liệu cũ
+ 
+     users.forEach(user => {
+       if(user.enabled === false){
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${user.username || ''}</td>
+          <td>${user.email || ''}</td>
+          <td>${user.address || 'N/A'}</td>
+          
+          <td>
+            ${user.avatar ? `<img src="http://localhost:8888/images/avatar/${user.avatar}" alt="Avatar" width="50" height="50">` : 'N/A'}
+          </td>
+          <td>${user.phone || 'N/A'}</td>
+          <td>
+            <button onclick="deleteUser(${user.userId})">Xóa</button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+       }
+     });
+ 
+     console.log('Người dùng được hiển thị:', users);
+   } catch (error) {
+     console.error('Lỗi khi tải dữ liệu người dùng:', error);
+   }
+ }
+ 
+ // Hàm xóa người dùng
+async function deleteUser(userId) {
+  const confirmDelete = confirm(`Bạn có chắc muốn xóa người dùng với ID: ${userId}?`);
+  if (confirmDelete) {
+    try {
+      const token = getToken();
+      
+      if (!token) {
+        alert('Bạn chưa đăng nhập. Vui lòng đăng nhập để tiếp tục.');
+        return;
+      }
+
+      const response = await fetch(`http://localhost:8888/api/authentication/user?id=${userId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // Gửi token trong header
+        }
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
+        } else {
+          alert(`Lỗi khi xóa người dùng: ${response.statusText}`);
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      if (responseData && responseData.code === 200) {
+        alert('Người dùng đã được xóa thành công.');
+        fetchUsers(); // Làm mới danh sách người dùng
+      } else {
+        alert(`Lỗi khi xóa người dùng: ${responseData.message || 'Không xác định'}`);
+      }
+    } catch (error) {
+      console.error('Lỗi khi xóa người dùng:', error);
+      alert('Đã xảy ra lỗi khi xóa người dùng. Vui lòng thử lại sau.');
+    }
+  }
+}
+
+ // Gọi hàm fetchUsers khi tải trang
+ document.addEventListener('DOMContentLoaded', fetchUsers);
+ 
+ 
+ </script>
+
+<style>
+  #messageList {
+    width: 300px; /* Cố định độ rộng của dropdown */
+    overflow-y: auto; /* Thêm thanh cuộn khi nội dung vượt quá chiều cao */
+  }
+  
+  #messageList .dropdown-header {
+    font-weight: bold;
+  }
+  
+  #messageList hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+  }
+
+  
+  .message-modal {
+    display: none;
+    position: fixed;
+    top: 7%; 
+    left: 81%; 
+    transform: translateX(-50%); 
+    width: 310px;
+    max-height: 70%; 
+    overflow-y: auto; 
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    box-sizing: border-box; 
+  }
+
+  
+  .message-modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .message-modal ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .message-modal ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .sender-message, .receiver-message {
+    font-size: 10px;
+  }
+  
+  .sender-message {
+    text-align: right;
+  }
+  
+  .receiver-message {
+    text-align: left;
+  }
+  
+  .message-content {
+    display: inline-block;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .sender-message .message-content {
+    background-color: #f0f0f0;
+  }
+  
+  .receiver-message .message-content {
+    background-color: #d1e7ff;
+  }
+  
+  .message-modal-content {
+    padding: 20px;
+  }
+  
+  .send-message-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  #messageInput {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #sendMessageBtn {
+    width: 35px;
+    font-size: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #sendMessageBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    th:nth-child(3), td:nth-child(3), /* Địa chỉ */
+    th:nth-child(4), td:nth-child(4), /* Tên họ */
+    th:nth-child(5), td:nth-child(5), /* Tên */
+    th:nth-child(6), td:nth-child(6) { /* Avatar */
+        display: none;
+    }
+}
+
+</style>
